@@ -18,6 +18,12 @@ async def load_extensions():
 
 @bot.event
 async def on_ready():
+    try:
+        synced = await bot.tree.sync()
+        print(f"Synced {len(synced)} command(s).")
+    except Exception as e:
+        print(e)
+
     print(f"{bot.user} has awakened!")
 
 
