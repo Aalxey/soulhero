@@ -1,4 +1,5 @@
 import discord
+from bot.views.prologue_view import PrologueView
 from discord.ext import commands
 from discord import app_commands
 
@@ -30,7 +31,10 @@ class Start(commands.Cog):
         inline=False
     )
 
-        await interaction.response.send_message(embed=embed)
+        await interaction.response.send_message(
+            embed=embed,
+            view=PrologueView()
+        )
 
 
 async def setup(bot):
