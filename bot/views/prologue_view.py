@@ -1,9 +1,11 @@
 import discord
+from bot.story.prologue import get_prologue_page
 
 
 class PrologueView(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
+        self.current_page = 1
 
     @discord.ui.button(
     label="Next ▶",
@@ -15,21 +17,10 @@ class PrologueView(discord.ui.View):
         button: discord.ui.Button
     ):
 
-        embed = discord.Embed(
-            title="📜 Soul Hero",
-            description="**Prologue: The Fracture of Worlds**",
-            color=discord.Color.gold()
-        )
+        if self.current_page < 4:
+            self.current_page += 1
 
-        embed.add_field(
-            name="Page 2",
-            value=(
-                "Far beyond the understanding of ordinary beings...\n\n"
-                "A mysterious observer watched over the endless flow of time.\n\n"
-                "**???**"
-            ),
-        inline=False
-        )
+        embed = get_prologue_page(self.current_page)
 
         await interaction.response.edit_message(
             embed=embed,
