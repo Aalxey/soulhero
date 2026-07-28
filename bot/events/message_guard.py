@@ -13,40 +13,43 @@ class MessageGuard(commands.Cog):
 
 
     @commands.Cog.listener()
-    async def on_message(self, message: discord.Message):
+    async def on_message(self, message):
 
-        # Ignore bots
         if message.author.bot:
             return
 
-        # Ignore DMs
+
         if message.guild is None:
             return
+
 
         player = PlayerService.get_player(
             message.author.id
         )
 
+
         if player is None:
             return
 
-        # Only protect players inside the ruins
-        if player.journey_state == JourneyState.OATHBOUND:
+
+        if (
+            player.journey_state
+            == JourneyState.OATHBOUND.value
+        ):
             return
 
-        channel_name = (
-            f"forgotten-ruins-{str(message.author.id)[-4:]}"
-        )
 
-        if message.channel.name != channel_name:
+        if not message.channel.name.startswith(
+            "forgotten-ruins-"
+        ):
             return
 
-        # Delete anything the player types
+
         try:
             await message.delete()
 
-        except discord.Forbidden:
-            pass
-
-        except discord.NotFound:
+        except (
+            discord.Forbidden,
+            discord.NotFound
+        ):
             pass

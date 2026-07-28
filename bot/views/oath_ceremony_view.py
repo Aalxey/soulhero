@@ -8,13 +8,39 @@ from bot.story.oath_dialogue import get_oath_dialogue
 
 class OathCeremonyView(discord.ui.View):
 
-    def __init__(self, hero):
+    def __init__(
+        self,
+        hero,
+        player_id: int
+    ):
 
         super().__init__(
             timeout=None
         )
 
         self.hero = hero
+        self.player_id = player_id
+
+
+
+    async def interaction_check(
+        self,
+        interaction: discord.Interaction
+    ):
+
+        # Only the owner of this oath can continue
+
+        if interaction.user.id != self.player_id:
+
+            await interaction.response.send_message(
+                "🌑 This oath does not belong to your soul.",
+                ephemeral=True
+            )
+
+            return False
+
+
+        return True
 
 
 
@@ -30,18 +56,15 @@ class OathCeremonyView(discord.ui.View):
 
 
         player = PlayerService.get_player(
-            interaction.user.id
+            self.player_id
         )
 
 
         if player is None:
 
             await interaction.response.send_message(
-
                 "The Soul Core cannot find your existence.",
-
                 ephemeral=True
-
             )
 
             return
@@ -51,25 +74,22 @@ class OathCeremonyView(discord.ui.View):
         if player.hero_id is None:
 
             await interaction.response.send_message(
-
                 "No sleeping soul has answered your call yet.",
-
                 ephemeral=True
-
             )
 
             return
 
 
 
-        if player.journey_state == JourneyState.OATH_COMPLETE:
+        if (
+            player.journey_state
+            == JourneyState.OATH_COMPLETE
+        ):
 
             await interaction.response.send_message(
-
                 "Your oath has already been formed.",
-
                 ephemeral=True
-
             )
 
             return
@@ -77,7 +97,7 @@ class OathCeremonyView(discord.ui.View):
 
 
         PlayerService.complete_oath(
-            interaction.user.id
+            self.player_id
         )
 
 
@@ -88,7 +108,10 @@ class OathCeremonyView(discord.ui.View):
 
         embed = discord.Embed(
 
-            title=f"⚔ Oath Formed — {self.hero['name']}",
+            title=(
+                f"⚔ Oath Formed — "
+                f"{self.hero['name']}"
+            ),
 
             description=dialogue["complete"],
 
@@ -98,9 +121,7 @@ class OathCeremonyView(discord.ui.View):
 
 
         embed.set_footer(
-
             text="The ruins still await your final trial."
-
         )
 
 
@@ -108,6 +129,9 @@ class OathCeremonyView(discord.ui.View):
 
             embed=embed,
 
-            view=WelcomeView(self.hero)
+            view=WelcomeView(
+                self.hero,
+                self.player_id
+            )
 
         )

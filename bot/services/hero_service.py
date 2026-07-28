@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from random import choice
 
 
 class HeroService:
@@ -27,10 +28,29 @@ class HeroService:
 
         return cls._heroes
 
+    # -------------------------------------
+
     @classmethod
     def get_all_heroes(cls):
 
         return cls.load_heroes()
+
+    # -------------------------------------
+
+    @classmethod
+    def get_hero_by_id(
+        cls,
+        hero_id: int
+    ):
+
+        for hero in cls.get_all_heroes():
+
+            if hero["id"] == hero_id:
+                return hero
+
+        return None
+
+    # -------------------------------------
 
     @classmethod
     def find_hero_by_name(
@@ -47,6 +67,8 @@ class HeroService:
 
         return None
 
+    # -------------------------------------
+
     @classmethod
     def get_hero_index(
         cls,
@@ -55,9 +77,30 @@ class HeroService:
 
         hero_name = hero_name.lower().strip()
 
-        for index, hero in enumerate(cls.get_all_heroes()):
+        for index, hero in enumerate(
+            cls.get_all_heroes()
+        ):
 
             if hero["name"].lower() == hero_name:
                 return index
 
         return None
+
+    # -------------------------------------
+
+    @classmethod
+    def hero_exists(
+        cls,
+        hero_id: int
+    ):
+
+        return cls.get_hero_by_id(hero_id) is not None
+
+    # -------------------------------------
+
+    @classmethod
+    def random_hero(cls):
+
+        return choice(
+            cls.get_all_heroes()
+        )

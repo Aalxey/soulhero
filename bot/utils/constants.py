@@ -14,3 +14,7 @@ class JourneyState(str, Enum):
     WELCOME = "WELCOME"
 
     OATHBOUND = "OATHBOUND"
+
+    @property
+    def is_free_world(self):
+        return self == JourneyState.OATHBOUND

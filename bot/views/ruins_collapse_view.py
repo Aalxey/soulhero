@@ -1,17 +1,24 @@
+import asyncio
 import discord
 
 from bot.services.player_service import PlayerService
+from bot.services.channel_service import ChannelService
 
 
 class RuinsCollapseView(discord.ui.View):
 
-    def __init__(self, hero):
+    def __init__(
+        self,
+        hero,
+        player_id
+    ):
 
         super().__init__(
             timeout=None
         )
 
         self.hero = hero
+        self.player_id = player_id
 
 
 
@@ -25,9 +32,32 @@ class RuinsCollapseView(discord.ui.View):
         button: discord.ui.Button
     ):
 
+        # ----------------------------
+        # Ownership Check
+        # ----------------------------
+
+        if interaction.user.id != self.player_id:
+
+            await interaction.response.send_message(
+
+                "🌑 This journey does not belong to your soul.",
+
+                ephemeral=True
+
+            )
+
+            return
+
+
+
+        # ----------------------------
+        # Collapse Ruins
+        # ----------------------------
 
         player = PlayerService.collapse_ruins(
+
             interaction.user.id
+
         )
 
 
@@ -47,22 +77,23 @@ class RuinsCollapseView(discord.ui.View):
 
         embed = discord.Embed(
 
-            title="🌋 The Ruins Collapse",
+            title="🌋 The Forgotten Ruins Collapse",
 
             description=(
 
-                "The ancient walls begin to break apart.\n\n"
+                "The ancient walls begin to crumble.\n\n"
 
                 "Dust fills the forgotten halls.\n\n"
 
-                f"**{self.hero['name']}** stands beside you "
-                "as the final seal shatters.\n\n"
+                f"**{self.hero['name']}** walks beside you as the final seal shatters.\n\n"
 
-                "The path forward has opened.\n\n"
+                "The Forgotten Ruins have fulfilled their purpose.\n\n"
 
-                "⚔ Your oath has been recognized.\n\n"
+                "⚔ Your oath has been acknowledged.\n\n"
 
-                "You are now **OATHBOUND**."
+                "You are now **OATHBOUND**.\n\n"
+
+                "*The ruins will disappear in a few moments...*"
 
             ),
 
@@ -76,5 +107,27 @@ class RuinsCollapseView(discord.ui.View):
             embed=embed,
 
             view=None
+
+        )
+
+
+
+        # ----------------------------
+        # Let player read the ending
+        # ----------------------------
+
+        await asyncio.sleep(8)
+
+
+
+        # ----------------------------
+        # Delete Forgotten Ruins
+        # ----------------------------
+
+        await ChannelService.delete_awakening_chamber(
+
+            interaction.guild,
+
+            interaction.user
 
         )
