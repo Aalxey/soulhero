@@ -5,8 +5,7 @@ from pathlib import Path
 class HeroService:
 
     DATA_PATH = (
-        Path(__file__).resolve()
-        .parents[2]
+        Path(__file__).resolve().parents[2]
         / "data"
         / "heroes.json"
     )
@@ -30,45 +29,35 @@ class HeroService:
 
     @classmethod
     def get_all_heroes(cls):
+
         return cls.load_heroes()
 
     @classmethod
-    def get_by_id(cls, hero_id):
+    def find_hero_by_name(
+        cls,
+        hero_name: str
+    ):
 
-        heroes = cls.load_heroes()
+        hero_name = hero_name.lower().strip()
 
-        for hero in heroes:
+        for hero in cls.get_all_heroes():
 
-            if hero["id"] == hero_id:
+            if hero["name"].lower() == hero_name:
                 return hero
 
         return None
 
     @classmethod
-    def get_by_name(cls, name):
+    def get_hero_index(
+        cls,
+        hero_name: str
+    ):
 
-        heroes = cls.load_heroes()
+        hero_name = hero_name.lower().strip()
 
-        for hero in heroes:
+        for index, hero in enumerate(cls.get_all_heroes()):
 
-            if hero["name"].lower() == name.lower():
-                return hero
+            if hero["name"].lower() == hero_name:
+                return index
 
         return None
-
-    @classmethod
-    def search(cls, query):
-
-        heroes = cls.load_heroes()
-
-        query = query.lower()
-
-        return [
-
-            hero
-
-            for hero in heroes
-
-            if query in hero["name"].lower()
-
-        ]

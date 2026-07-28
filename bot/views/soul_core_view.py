@@ -1,5 +1,6 @@
 import discord
-
+from bot.views.sleeping_hall_view import SleepingHallView
+from bot.story.sleeping_hall import get_sleeping_hall_embed
 from bot.story.soul_core import get_soul_core_embed
 
 
@@ -21,7 +22,12 @@ class SoulCoreView(discord.ui.View):
         self,
         interaction: discord.Interaction
     ):
-        await interaction.response.send_message(
-            "🌌 The Resonance Ceremony will begin in the next milestone.",
-            ephemeral=True
+        view = SleepingHallView()
+        hero = view.get_current_hero()
+
+        embed = get_sleeping_hall_embed(hero)
+
+        await interaction.response.edit_message(
+            embed=embed,
+            view=view
         )
