@@ -1,44 +1,39 @@
 from bot.utils.constants import JourneyState
 
+from bot.scenes.arrival_scene import ArrivalScene
+from bot.scenes.welcome_scene import WelcomeScene
+from bot.scenes.collapse_scene import CollapseScene
+
 
 class SceneRegistry:
-    """
-    Registry that maps a player's JourneyState
-    to a Scene name.
-
-    SceneManager will later use this to
-    instantiate the correct Scene.
-    """
 
     _registry = {
 
         JourneyState.WANDERER:
-            "ARRIVAL",
+            ArrivalScene,
 
-        JourneyState.AWAKENING:
-            "SLEEPING_HALL",
-
-        JourneyState.HERO_CHOSEN:
-            "OATH",
 
         JourneyState.OATH_COMPLETE:
-            "WELCOME",
+            WelcomeScene,
+
 
         JourneyState.WELCOME:
-            "COLLAPSE",
-
-        JourneyState.OATHBOUND:
-            "SOUL_WORLD",
+            CollapseScene,
 
     }
 
+
     @classmethod
-    def get_scene_name(
+    def get_scene(
+
         cls,
+
         journey_state
+
     ):
 
         return cls._registry.get(
-            journey_state,
-            "ARRIVAL"
+
+            journey_state
+
         )

@@ -1,7 +1,8 @@
 import asyncio
+
 import discord
 
-from bot.services.player_service import PlayerService
+from bot.engine.checkpoint_manager import CheckpointManager
 from bot.services.channel_service import ChannelService
 
 
@@ -22,19 +23,10 @@ class RuinsCollapseView(discord.ui.View):
 
 
 
-    @discord.ui.button(
-        label="🌋 Break the Ancient Seal",
-        style=discord.ButtonStyle.danger
-    )
-    async def collapse_button(
+    async def interaction_check(
         self,
-        interaction: discord.Interaction,
-        button: discord.ui.Button
+        interaction: discord.Interaction
     ):
-
-        # ----------------------------
-        # Ownership Check
-        # ----------------------------
 
         if interaction.user.id != self.player_id:
 
@@ -46,15 +38,25 @@ class RuinsCollapseView(discord.ui.View):
 
             )
 
-            return
+            return False
+
+
+        return True
 
 
 
-        # ----------------------------
-        # Collapse Ruins
-        # ----------------------------
+    @discord.ui.button(
+        label="🌋 Break the Ancient Seal",
+        style=discord.ButtonStyle.danger
+    )
+    async def collapse_button(
+        self,
+        interaction: discord.Interaction,
+        button: discord.ui.Button
+    ):
 
-        player = PlayerService.collapse_ruins(
+
+        player = CheckpointManager.collapse_ruins(
 
             interaction.user.id
 
@@ -62,6 +64,7 @@ class RuinsCollapseView(discord.ui.View):
 
 
         if player is None:
+
 
             await interaction.response.send_message(
 
@@ -71,35 +74,40 @@ class RuinsCollapseView(discord.ui.View):
 
             )
 
+
             return
 
 
 
         embed = discord.Embed(
 
-            title="🌋 The Forgotten Ruins Collapse",
+            title="🌋 The Ruins Collapse",
 
             description=(
 
-                "The ancient walls begin to crumble.\n\n"
+                "The ancient walls begin to break apart.\n\n"
 
                 "Dust fills the forgotten halls.\n\n"
 
-                f"**{self.hero['name']}** walks beside you as the final seal shatters.\n\n"
+                f"**{self.hero['name']}** stands beside you "
+                "as the final seal shatters.\n\n"
 
-                "The Forgotten Ruins have fulfilled their purpose.\n\n"
+                "The path forward has opened.\n\n"
 
-                "⚔ Your oath has been acknowledged.\n\n"
+                "⚔ Your oath has been recognized.\n\n"
 
                 "You are now **OATHBOUND**.\n\n"
 
-                "*The ruins will disappear in a few moments...*"
+                "━━━━━━━━━━━━━━━━━━━━━━\n\n"
+
+                "The Forgotten Ruins will fade away in 10 seconds..."
 
             ),
 
             color=discord.Color.red()
 
         )
+
 
 
         await interaction.response.edit_message(
@@ -112,22 +120,33 @@ class RuinsCollapseView(discord.ui.View):
 
 
 
-        # ----------------------------
-        # Let player read the ending
-        # ----------------------------
+        # Disable the button permanently
 
-        await asyncio.sleep(8)
+        self.clear_items()
 
 
 
-        # ----------------------------
-        # Delete Forgotten Ruins
-        # ----------------------------
+        # Wait before removing the temporary world
 
-        await ChannelService.delete_awakening_chamber(
+        await asyncio.sleep(10)
 
-            interaction.guild,
 
-            interaction.user
 
-        )
+        try:
+
+            await ChannelService.collapse_ruins_channel(
+
+                interaction.channel
+
+            )
+
+
+        except Exception as e:
+
+            print(
+
+                "RUINS COLLAPSE ERROR:",
+
+                repr(e)
+
+            )

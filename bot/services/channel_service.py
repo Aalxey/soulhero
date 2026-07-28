@@ -5,14 +5,19 @@ from config import SOUL_CORE_CATEGORY_ID
 
 class ChannelService:
 
+
     @staticmethod
-    def get_category(
-        guild: discord.Guild
-    ) -> discord.CategoryChannel:
+    async def get_or_create_awakening_chamber(
+        guild: discord.Guild,
+        member: discord.Member,
+        bot_member: discord.Member
+    ):
+
 
         category = guild.get_channel(
             SOUL_CORE_CATEGORY_ID
         )
+
 
         if category is None:
 
@@ -20,48 +25,23 @@ class ChannelService:
                 "Soul Core category was not found."
             )
 
-        return category
 
-    @staticmethod
-    def get_channel_name(
-        member: discord.Member
-    ) -> str:
-
-        return (
+        channel_name = (
             f"forgotten-ruins-{str(member.id)[-4:]}"
         )
 
-    @staticmethod
-    async def get_awakening_chamber(
-        guild: discord.Guild,
-        member: discord.Member
-    ) -> discord.TextChannel | None:
 
-        category = ChannelService.get_category(
-            guild
-        )
-
-        channel_name = (
-            ChannelService.get_channel_name(
-                member
-            )
-        )
-
-        return discord.utils.get(
+        existing_channel = discord.utils.get(
             category.channels,
             name=channel_name
         )
 
-    @staticmethod
-    async def create_awakening_chamber(
-        guild: discord.Guild,
-        member: discord.Member,
-        bot_member: discord.Member
-    ) -> discord.TextChannel:
 
-        category = ChannelService.get_category(
-            guild
-        )
+        if existing_channel:
+
+            return existing_channel
+
+
 
         overwrites = {
 
@@ -69,6 +49,7 @@ class ChannelService:
                 discord.PermissionOverwrite(
                     view_channel=False
                 ),
+
 
             member:
                 discord.PermissionOverwrite(
@@ -80,6 +61,7 @@ class ChannelService:
                     add_reactions=False
                 ),
 
+
             bot_member:
                 discord.PermissionOverwrite(
                     view_channel=True,
@@ -87,13 +69,14 @@ class ChannelService:
                     manage_channels=True,
                     manage_messages=True
                 )
+
         }
+
+
 
         return await guild.create_text_channel(
 
-            name=ChannelService.get_channel_name(
-                member
-            ),
+            name=channel_name,
 
             category=category,
 
@@ -101,43 +84,20 @@ class ChannelService:
 
         )
 
-    @staticmethod
-    async def get_or_create_awakening_chamber(
-        guild: discord.Guild,
-        member: discord.Member,
-        bot_member: discord.Member
-    ) -> discord.TextChannel:
 
-        channel = await ChannelService.get_awakening_chamber(
-            guild,
-            member
-        )
-
-        if channel is not None:
-
-            return channel
-
-        return await ChannelService.create_awakening_chamber(
-            guild,
-            member,
-            bot_member
-        )
 
     @staticmethod
-    async def delete_awakening_chamber(
-        guild: discord.Guild,
-        member: discord.Member
+    async def collapse_ruins_channel(
+        channel: discord.TextChannel
     ):
-
-        channel = await ChannelService.get_awakening_chamber(
-            guild,
-            member
-        )
 
         if channel is None:
 
             return
 
+
         await channel.delete(
-            reason="The Forgotten Ruins have crumbled."
+
+            reason="Forgotten Ruins collapsed after oath completion."
+
         )
