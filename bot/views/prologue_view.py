@@ -1,6 +1,9 @@
 import discord
 
 from bot.story.prologue import get_prologue_page
+from bot.story.soul_core import get_soul_core_embed
+from bot.views.soul_core_view import SoulCoreView
+
 
 
 class PrologueView(discord.ui.View):
@@ -38,7 +41,7 @@ class PrologueView(discord.ui.View):
 
         # Last Page
         if self.current_page == 4:
-            self.next_button.label = "⚔ Begin Journey"
+            self.next_button.label = "Step Forward"
             self.next_button.style = discord.ButtonStyle.success
         else:
             self.next_button.label = "Next ▶"
@@ -70,7 +73,9 @@ class PrologueView(discord.ui.View):
                 view=self
             )
         else:
-            await interaction.response.send_message(
-                "⚔ Hero Selection is coming in the next milestone!",
-                ephemeral=True
+            embed = get_soul_core_embed()
+
+            await interaction.response.edit_message(
+                embed=embed,
+                view=SoulCoreView()
             )

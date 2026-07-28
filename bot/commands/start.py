@@ -1,27 +1,37 @@
 import discord
-from bot.story.prologue import get_prologue_page
-from bot.views.prologue_view import PrologueView
+
 from discord.ext import commands
 from discord import app_commands
+
 from bot.database.repositories.player_repository import PlayerRepository
 from bot.services.channel_service import ChannelService
 
+from bot.story.arrival import get_arrival_embed
+from bot.views.arrival_view import ArrivalView
+
 
 class Start(commands.Cog):
+
     def __init__(self, bot):
         self.bot = bot
 
     @app_commands.command(
-    name="start",
-    description="Begin your journey as a Soul Bearer."
+        name="start",
+        description="Begin your journey as a Soul Bearer."
     )
     async def start(self, interaction: discord.Interaction):
+
         try:
+
+            # -----------------------------
+            # Player
+            # -----------------------------
             player = PlayerRepository.get_by_discord_id(
                 str(interaction.user.id)
             )
 
             if player is None:
+
                 player = PlayerRepository.create_player(
                     discord_id=str(interaction.user.id),
                     username=interaction.user.name
@@ -30,9 +40,15 @@ class Start(commands.Cog):
                 print(f"🌑 New Wanderer: {player.username}")
 
             else:
+
                 print(f"⚔ Welcome back: {player.username}")
 
-            bot_member = interaction.guild.get_member(self.bot.user.id)
+            # -----------------------------
+            # Create / Get Chamber
+            # -----------------------------
+            bot_member = interaction.guild.get_member(
+                self.bot.user.id
+            )
 
             channel = await ChannelService.get_or_create_awakening_chamber(
                 guild=interaction.guild,
@@ -40,28 +56,38 @@ class Start(commands.Cog):
                 bot_member=bot_member
             )
 
-            await channel.send("🜂 The Forgotten Ruins awaken...")
-
-            embed = get_prologue_page(1)
+            # -----------------------------
+            # Send Arrival
+            # -----------------------------
+            arrival_embed = get_arrival_embed()
 
             await channel.send(
-                embed=embed,
-                view=PrologueView()
+                embed=arrival_embed,
+                view=ArrivalView()
             )
 
+            # -----------------------------
+            # Notify Player
+            # -----------------------------
             await interaction.response.send_message(
-                f"🜂 **The Soul Core has answered your call.**\n\n"
-                f"Your awakening awaits within {channel}.",
+                (
+                    "🜂 **The Forgotten Ruins have opened before you.**\n\n"
+                    "A quiet whisper beckons from within.\n\n"
+                    f"Your path awaits in <#{channel.id}>."
+                ),
                 ephemeral=True
             )
+
         except Exception as e:
+
             print("ERROR:", repr(e))
 
             if not interaction.response.is_done():
+
                 await interaction.response.send_message(
                     f"An error occurred:\n```{e}```",
                     ephemeral=True
-                )    
+                )
 
 
 async def setup(bot):
