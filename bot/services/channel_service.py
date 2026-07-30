@@ -39,6 +39,37 @@ class ChannelService:
 
         if existing_channel:
 
+            await existing_channel.set_permissions(
+                guild.default_role,
+                view_channel=False
+            )
+
+            await existing_channel.set_permissions(
+                member,
+                view_channel=True,
+                read_message_history=True,
+                send_messages=False,
+                embed_links=False,
+                attach_files=False,
+                add_reactions=False,
+                create_public_threads=False,
+                create_private_threads=False,
+                send_messages_in_threads=False,
+                use_application_commands=True
+            )
+
+            await existing_channel.set_permissions(
+                bot_member,
+                view_channel=True,
+                send_messages=True,
+                manage_channels=True,
+                manage_messages=True,
+                manage_permissions=True,
+                read_message_history=True,
+                embed_links=True,
+                attach_files=True
+            )
+
             return existing_channel
 
 
@@ -54,27 +85,54 @@ class ChannelService:
             member:
                 discord.PermissionOverwrite(
                     view_channel=True,
-                    send_messages=True,
                     read_message_history=True,
-                    embed_links=True,
+
+                    send_messages=False,
+
+                    embed_links=False,
                     attach_files=False,
-                    add_reactions=False
+                    add_reactions=False,
+
+                    create_public_threads=False,
+                    create_private_threads=False,
+                    send_messages_in_threads=False,
+
+                    use_application_commands=True
                 ),
 
 
             bot_member:
                 discord.PermissionOverwrite(
+
                     view_channel=True,
+
                     send_messages=True,
+
                     manage_channels=True,
-                    manage_messages=True
+                    manage_messages=True,
+
+                    manage_permissions=True,
+
+                    read_message_history=True,
+
+                    embed_links=True,
+
+                    attach_files=True
+
                 )
+
+            # staff_role:
+            #     discord.PermissionOverwrite(
+            #         view_channel=True,
+            #         send_messages=True,
+            #         read_message_history=True
+            #     )
 
         }
 
 
 
-        return await guild.create_text_channel(
+        channel = await guild.create_text_channel(
 
             name=channel_name,
 
@@ -83,6 +141,12 @@ class ChannelService:
             overwrites=overwrites
 
         )
+
+        await channel.edit(
+            sync_permissions=False
+        )
+
+        return channel
 
 
 
