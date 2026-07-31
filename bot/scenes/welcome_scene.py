@@ -13,11 +13,12 @@ class WelcomeScene(Scene):
 
         return "WELCOME"
 
+
     def build_embed(self):
 
         return discord.Embed(
 
-            title="🌒 The Final Trial",
+            title="🌑 Welcome to Soul World",
 
             description=get_welcome_story(
 
@@ -29,14 +30,13 @@ class WelcomeScene(Scene):
 
         )
 
+
     def build_view(self):
 
         return WelcomeView(
 
-            hero=self.hero,
+            player=self.player,
 
-            player_id=int(
-                self.player.discord_id
-            )
+            hero=self.hero
 
         )

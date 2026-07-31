@@ -198,11 +198,23 @@ class PlayerService:
 
 
 
-        # Ruins collapse only after welcome
+        # ---------------------------------
+        # Forgotten Ruins collapse happens
+        # after oath completion.
+        #
+        # Flow:
+        # OATH_COMPLETE
+        #       |
+        #       v
+        # Break Ancient Seal
+        #       |
+        #       v
+        # OATHBOUND
+        # ---------------------------------
 
         if (
             player.journey_state
-            != JourneyState.WELCOME
+            != JourneyState.OATH_COMPLETE
         ):
 
             return player

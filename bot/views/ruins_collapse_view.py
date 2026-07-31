@@ -2,24 +2,29 @@ import asyncio
 
 import discord
 
-from bot.engine.checkpoint_manager import CheckpointManager
+from bot.engine.scene_manager import SceneManager
+
+from bot.scenes.welcome_scene import WelcomeScene
+
+from bot.services.player_service import PlayerService
 from bot.services.channel_service import ChannelService
+from bot.services.soul_chamber_service import SoulChamberService
 
 
 class RuinsCollapseView(discord.ui.View):
 
     def __init__(
         self,
-        hero,
-        player_id
+        player,
+        hero
     ):
 
         super().__init__(
             timeout=None
         )
 
+        self.player = player
         self.hero = hero
-        self.player_id = player_id
 
 
 
@@ -28,7 +33,7 @@ class RuinsCollapseView(discord.ui.View):
         interaction: discord.Interaction
     ):
 
-        if interaction.user.id != self.player_id:
+        if str(interaction.user.id) != self.player.discord_id:
 
             await interaction.response.send_message(
 
@@ -56,9 +61,14 @@ class RuinsCollapseView(discord.ui.View):
     ):
 
 
-        player = CheckpointManager.collapse_ruins(
+        # ---------------------------------
+        # Update Player Progression
+        # OATH_COMPLETE -> OATHBOUND
+        # ---------------------------------
 
-            interaction.user.id
+        player = PlayerService.collapse_ruins(
+
+            str(interaction.user.id)
 
         )
 
@@ -74,33 +84,63 @@ class RuinsCollapseView(discord.ui.View):
 
             )
 
-
             return
 
 
 
+        # ---------------------------------
+        # Create Permanent Soul Chamber
+        # ---------------------------------
+
+        bot_member = interaction.guild.get_member(
+
+            interaction.client.user.id
+
+        )
+
+
+        chamber = await SoulChamberService.get_or_create(
+
+            guild=interaction.guild,
+
+            member=interaction.user,
+
+            bot_member=bot_member
+
+        )
+
+
+
+        # ---------------------------------
+        # Ruins Collapse Message
+        # ---------------------------------
+
         embed = discord.Embed(
 
-            title="🌋 The Ruins Collapse",
+            title="🌋 The Forgotten Ruins Collapse",
 
             description=(
 
-                "The ancient walls begin to break apart.\n\n"
+                "The ancient walls begin to crumble.\n\n"
 
                 "Dust fills the forgotten halls.\n\n"
 
                 f"**{self.hero['name']}** stands beside you "
                 "as the final seal shatters.\n\n"
 
-                "The path forward has opened.\n\n"
+                "A powerful force suddenly engulfs your soul.\n\n"
 
-                "⚔ Your oath has been recognized.\n\n"
+                "Before you can react, the world around you "
+                "begins to disappear.\n\n"
 
-                "You are now **OATHBOUND**.\n\n"
+                "You find yourself being pulled toward "
+                "an unknown sanctuary...\n\n"
 
-                "━━━━━━━━━━━━━━━━━━━━━━\n\n"
+                f"🏛 **Your Soul Chamber awaits in "
+                f"{chamber.mention}.**\n\n"
 
-                "The Forgotten Ruins will fade away in 10 seconds..."
+                "The Forgotten Ruins will disappear in "
+                "**10 seconds**."
 
             ),
 
@@ -120,16 +160,44 @@ class RuinsCollapseView(discord.ui.View):
 
 
 
-        # Disable the button permanently
+        # ---------------------------------
+        # Enter Soul Chamber
+        # ---------------------------------
+
+        scene = WelcomeScene(
+
+            player,
+
+            self.hero
+
+        )
+
+
+        await SceneManager.send(
+
+            chamber,
+
+            scene
+
+        )
+        print(
+            "WELCOME SENT TO:",
+            chamber.name
+        )
+
+
+
+        # Disable old button
 
         self.clear_items()
 
 
 
-        # Wait before removing the temporary world
+        # ---------------------------------
+        # Destroy Temporary Ruins
+        # ---------------------------------
 
         await asyncio.sleep(10)
-
 
 
         try:

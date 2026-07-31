@@ -1,79 +1,73 @@
 import discord
 
 
-from bot.views.ruins_collapse_view import RuinsCollapseView
-
-
 class WelcomeView(discord.ui.View):
 
     def __init__(
         self,
-        hero,
-        player_id
+        player,
+        hero
     ):
 
         super().__init__(
             timeout=None
         )
 
+        self.player = player
         self.hero = hero
-        self.player_id = player_id
 
+
+    async def interaction_check(
+        self,
+        interaction: discord.Interaction
+    ):
+
+        if str(interaction.user.id) != self.player.discord_id:
+
+            await interaction.response.send_message(
+
+                "🌑 This chamber does not belong to your soul.",
+
+                ephemeral=True
+
+            )
+
+            return False
+
+        return True
 
 
     @discord.ui.button(
-        label="🌑 Continue",
-        style=discord.ButtonStyle.primary
+        label="⚔ Begin Your Journey",
+        style=discord.ButtonStyle.success
     )
-    async def continue_button(
+    async def begin_journey(
         self,
         interaction: discord.Interaction,
         button: discord.ui.Button
     ):
 
+        await interaction.response.edit_message(
 
-        # Prevent another player using this journey button
+            content=None,
 
-        if interaction.user.id != self.player_id:
+            embed=None,
 
-            await interaction.response.send_message(
-                "This journey does not belong to your soul.",
-                ephemeral=True
-            )
-
-            return
-
-
-
-        embed = discord.Embed(
-
-            title="🌋 The Final Trial",
-
-            description=(
-
-                "The air inside the Forgotten Ruins shifts...\n\n"
-
-                "Ancient stones begin to tremble.\n\n"
-
-                "The seal protecting this place "
-                "is weakening.\n\n"
-
-                "One final step remains."
-
-            ),
-
-            color=discord.Color.dark_purple()
+            view=None
 
         )
 
+        await interaction.followup.send(
 
-        await interaction.response.edit_message(
+            (
+                "⚔ **The doors of your Soul Chamber slowly open...**\n\n"
 
-            embed=embed,
+                "Beyond them lies **Soul World**.\n\n"
 
-            view=RuinsCollapseView(
-                self.hero,
-                self.player_id
-            )
+                "May your legend be remembered."
+
+            ),
+
+            ephemeral=True
 
         )

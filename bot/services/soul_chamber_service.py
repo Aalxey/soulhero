@@ -1,6 +1,6 @@
 import discord
 
-from config import SOUL_CHAMBER_CATEGORY_ID
+from bot.services.channel_service import ChannelService
 
 
 class SoulChamberService:
@@ -10,14 +10,14 @@ class SoulChamberService:
     Responsibilities:
     - Find an existing Soul Chamber.
     - Create one if it does not exist.
-    - Return the player's chamber.
+    - Return the player's Soul Chamber.
 
     This service NEVER:
     - Sends embeds
-    - Sends Discord messages
+    - Sends messages
     - Updates SQL
     - Deletes channels
-    - Contains game logic
+    - Handles progression
     """
 
     @staticmethod
@@ -27,51 +27,76 @@ class SoulChamberService:
         bot_member: discord.Member
     ) -> discord.TextChannel:
 
-        category = guild.get_channel(
-            SOUL_CHAMBER_CATEGORY_ID
+        category = ChannelService.get_category(
+            guild
         )
-
-        if category is None:
-            raise ValueError(
-                "Soul Chamber category was not found."
-            )
 
         channel_name = (
             f"soul-chamber-{str(member.id)[-4:]}"
         )
 
         existing_channel = discord.utils.get(
-            category.channels,
+
+            category.text_channels,
+
             name=channel_name
+
         )
 
         if existing_channel is not None:
+
             return existing_channel
 
         overwrites = {
 
             guild.default_role:
+
                 discord.PermissionOverwrite(
+
                     view_channel=False
+
                 ),
 
             member:
+
                 discord.PermissionOverwrite(
+
                     view_channel=True,
+
                     send_messages=True,
+
                     read_message_history=True,
+
                     embed_links=True,
+
                     attach_files=False,
-                    add_reactions=False
+
+                    add_reactions=False,
+
+                    use_application_commands=True
+
                 ),
 
             bot_member:
+
                 discord.PermissionOverwrite(
+
                     view_channel=True,
+
                     send_messages=True,
+
                     manage_channels=True,
+
                     manage_messages=True,
-                    read_message_history=True
+
+                    manage_permissions=True,
+
+                    read_message_history=True,
+
+                    embed_links=True,
+
+                    attach_files=True
+
                 )
 
         }
@@ -87,6 +112,12 @@ class SoulChamberService:
             topic=(
                 f"Soul Chamber of {member.display_name}"
             )
+
+        )
+
+        await chamber.edit(
+
+            sync_permissions=False
 
         )
 

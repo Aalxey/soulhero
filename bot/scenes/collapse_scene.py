@@ -11,7 +11,6 @@ class CollapseScene(Scene):
 
         return "COLLAPSE"
 
-
     def build_embed(self):
 
         return discord.Embed(
@@ -34,15 +33,12 @@ class CollapseScene(Scene):
 
         )
 
-
     def build_view(self):
 
         return RuinsCollapseView(
 
-            hero=self.hero,
+            player=self.player,
 
-            player_id=int(
-                self.player.discord_id
-            )
+            hero=self.hero
 
         )

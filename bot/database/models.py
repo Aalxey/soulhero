@@ -1,5 +1,9 @@
-from sqlalchemy import Column, Integer, String, DateTime
 from datetime import datetime
+
+from sqlalchemy import Column
+from sqlalchemy import DateTime
+from sqlalchemy import Integer
+from sqlalchemy import String
 
 from bot.database.connection import Base
 
@@ -28,9 +32,6 @@ class Player(Base):
     )
 
 
-    # The Hero bonded with this player
-    # None means no Hero chosen yet
-
     hero_id = Column(
         Integer,
         nullable=True
@@ -39,7 +40,31 @@ class Player(Base):
 
     journey_state = Column(
         String,
-        default="WANDERER"
+        default="WANDERER",
+        nullable=False
+    )
+
+
+    # Player progression
+    resonance = Column(
+        Integer,
+        default=1,
+        nullable=False
+    )
+
+
+    # PvP statistics
+    wins = Column(
+        Integer,
+        default=0,
+        nullable=False
+    )
+
+
+    losses = Column(
+        Integer,
+        default=0,
+        nullable=False
     )
 
 

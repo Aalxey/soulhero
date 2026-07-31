@@ -2,42 +2,38 @@ def get_welcome_story(hero):
 
     return (
 
-        f"🌑 Welcome, Oathbearer.\n\n"
+        f"🌑 Welcome to Soul World.\n\n"
 
-        f"The bond between your soul and **{hero['name']}** "
-        "has been acknowledged.\n\n"
+        f"Your bond with **{hero['name']}** has been acknowledged.\n\n"
 
-        "The Forgotten Ruins have fulfilled their purpose.\n\n"
+        "This chamber now belongs to your soul alone.\n\n"
 
-        "Beyond these ancient walls lies a world where every soul "
-        "must carve its own destiny.\n\n"
+        "Within these walls, your memories, your Hero, and every step "
+        "of your journey shall forever be preserved.\n\n"
 
-        "Before you step forward, remember these truths:\n\n"
+        "Beyond this chamber lies Soul World, where countless awakened "
+        "souls continue to write their own legends.\n\n"
 
         "━━━━━━━━━━━━━━━━━━━━━━\n\n"
+
+        "🏛 **Your Soul Chamber**\n"
+        "This is your sanctuary.\n"
+        "Whenever you return, your journey will always continue from here.\n\n"
 
         "📜 **Soul Record**\n"
-        "Use **`/profile`** to view your soul, your Hero, "
-        "your growth, and the path you have walked.\n\n"
+        "Use **`/profile`** to view your Hero, your Resonance, "
+        "your victories, and the path you have walked.\n\n"
 
-        "⚔ **Trials of Battle**\n"
-        "Use **`/battle`** to challenge other Oathbound souls "
-        "and test your strength in combat.\n\n"
-
-        "🎒 **Forgotten Relics**\n"
-        "Weapons, relics, and treasures remain hidden throughout "
-        "the world.\n"
-        "Your inventory will awaken when the world begins revealing "
-        "its forgotten secrets.\n\n"
-
-        "🌍 **Your Journey**\n"
-        "No prophecy has been written for you.\n"
-        "Every choice you make will shape your own legend.\n\n"
+        "🎒 **Inventory**\n"
+        "Relics, equipment, and forgotten treasures will one day "
+        "find their place here.\n"
+        "For now... your journey has only just begun.\n\n"
 
         "━━━━━━━━━━━━━━━━━━━━━━\n\n"
 
-        "\"Walk with courage...\"\n"
-        "\"For no soul can rewrite the path you choose.\"\n\n"
+        "\"Every legend begins with a single step.\"\n\n"
 
-        "When you are ready... break the seal."
+        "When you are ready...\n"
+
+        "Step beyond your chamber and enter Soul World."
     )

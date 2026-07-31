@@ -4,6 +4,7 @@ from bot.utils.constants import JourneyState
 
 from bot.services.player_service import PlayerService
 from bot.services.channel_service import ChannelService
+from bot.services.soul_chamber_service import SoulChamberService
 
 from bot.engine.scene_manager import SceneManager
 
@@ -25,7 +26,7 @@ class JourneyGateway:
         - handle buttons
         - write SQL
 
-    It only routes the player to the correct Scene.
+    It only routes the player to the correct Scene and the correct World.
     """
 
 
@@ -70,7 +71,7 @@ class JourneyGateway:
         if state == JourneyState.AWAKENING:
 
 
-            channel = await JourneyGateway._get_channel(
+            channel = await JourneyGateway._get_ruins_channel(
 
                 interaction,
 
@@ -102,7 +103,7 @@ class JourneyGateway:
         if state == JourneyState.HERO_CHOSEN:
 
 
-            channel = await JourneyGateway._get_channel(
+            channel = await JourneyGateway._get_ruins_channel(
 
                 interaction,
 
@@ -158,7 +159,7 @@ class JourneyGateway:
 
 
 
-            channel = await JourneyGateway._get_channel(
+            channel = await JourneyGateway._get_ruins_channel(
 
                 interaction,
 
@@ -230,7 +231,7 @@ class JourneyGateway:
 
 
 
-            channel = await JourneyGateway._get_channel(
+            channel = await JourneyGateway._get_ruins_channel(
 
                 interaction,
 
@@ -277,18 +278,27 @@ class JourneyGateway:
 
         if state == JourneyState.OATHBOUND:
 
+            chamber = await JourneyGateway._get_soul_chamber(
+
+                interaction,
+
+                bot
+
+            )
 
             await interaction.response.send_message(
 
                 (
-                    "🌑 The Forgotten Ruins have already fallen.\n\n"
-                    "You are now Oathbound and have entered Soul World."
+
+                    "🌑 Welcome back, Oathbearer.\n\n"
+
+                    f"Your Soul Chamber awaits in {chamber.mention}."
+
                 ),
 
                 ephemeral=True
 
             )
-
 
             return
 
@@ -307,7 +317,7 @@ class JourneyGateway:
     ):
 
 
-        channel = await JourneyGateway._get_channel(
+        channel = await JourneyGateway._get_ruins_channel(
 
             interaction,
 
@@ -352,9 +362,8 @@ class JourneyGateway:
 
 
 
-
     @staticmethod
-    async def _get_channel(
+    async def _get_ruins_channel(
 
         interaction,
 
@@ -371,6 +380,32 @@ class JourneyGateway:
 
 
         return await ChannelService.get_or_create_awakening_chamber(
+
+            guild=interaction.guild,
+
+            member=interaction.user,
+
+            bot_member=bot_member
+
+        )
+
+
+    @staticmethod
+    async def _get_soul_chamber(
+
+        interaction,
+
+        bot
+
+    ):
+
+        bot_member = interaction.guild.get_member(
+
+            bot.user.id
+
+        )
+
+        return await SoulChamberService.get_or_create(
 
             guild=interaction.guild,
 
