@@ -2,15 +2,21 @@ import discord
 
 from bot.ui.hero_search_modal import HeroSearchModal
 from bot.services.hero_service import HeroService
+from bot.services.player_service import PlayerService
 from bot.story.sleeping_hall import get_sleeping_hall_embed
 from bot.views.oath_ceremony_view import OathCeremonyView
 
 
 class SleepingHallView(discord.ui.View):
 
-    def __init__(self, player_id: int):
+    def __init__(
+        self,
+        player_id: int
+    ):
 
-        super().__init__(timeout=None)
+        super().__init__(
+            timeout=None
+        )
 
         self.player_id = player_id
 
@@ -18,7 +24,7 @@ class SleepingHallView(discord.ui.View):
 
         self.current_index = 0
 
-        self.started_seeking = False
+        self.started_seeking = True
 
 
         # Previous Chamber
@@ -33,7 +39,7 @@ class SleepingHallView(discord.ui.View):
         )
 
 
-        # Seek a Soul
+        # Seek Soul
 
         self.search_button = discord.ui.Button(
             label="🔍 Seek a Soul",
@@ -69,11 +75,21 @@ class SleepingHallView(discord.ui.View):
         )
 
 
-        self.add_item(self.begin_button)
-        self.add_item(self.previous_button)
-        self.add_item(self.search_button)
-        self.add_item(self.awaken_button)
-        self.add_item(self.next_button)
+        self.add_item(
+            self.previous_button
+        )
+
+        self.add_item(
+            self.search_button
+        )
+
+        self.add_item(
+            self.awaken_button
+        )
+
+        self.add_item(
+            self.next_button
+        )
 
 
         self.update_buttons()
@@ -84,10 +100,6 @@ class SleepingHallView(discord.ui.View):
         self,
         interaction: discord.Interaction
     ):
-
-        """
-        The Sleeping Hall belongs to one soul.
-        """
 
         if interaction.user.id != self.player_id:
 
@@ -106,7 +118,9 @@ class SleepingHallView(discord.ui.View):
     def get_current_hero(self):
 
         if not self.heroes:
+
             return None
+
 
         return self.heroes[
             self.current_index
@@ -116,46 +130,21 @@ class SleepingHallView(discord.ui.View):
 
     def update_buttons(self):
 
-        if not self.started_seeking:
-
-            self.previous_button.disabled = True
-            self.next_button.disabled = True
-            self.search_button.disabled = True
-            self.awaken_button.disabled = True
-
-            return
-
         self.previous_button.disabled = (
             self.current_index <= 0
         )
+
 
         self.next_button.disabled = (
             self.current_index >= len(self.heroes) - 1
         )
 
+
         self.search_button.disabled = False
+
+
         self.awaken_button.disabled = False
 
-    async def begin_callback(
-        self,
-        interaction: discord.Interaction
-    ):
-
-        self.started_seeking = True
-
-        self.begin_button.disabled = True
-
-        self.update_buttons()
-
-        hero = self.get_current_hero()
-
-        await interaction.response.edit_message(
-
-            embed=get_sleeping_hall_embed(hero),
-
-            view=self
-
-        )
 
 
     async def previous_callback(
@@ -175,21 +164,13 @@ class SleepingHallView(discord.ui.View):
 
 
         await interaction.response.edit_message(
-            embed=get_sleeping_hall_embed(hero),
+
+            embed=get_sleeping_hall_embed(
+                hero
+            ),
+
             view=self
-        )
 
-        self.next_button.callback = (
-        self.next_callback
-        )
-
-        self.begin_button = discord.ui.Button(
-        label="🌑 Begin Seeking",
-        style=discord.ButtonStyle.primary
-        )
-
-        self.begin_button.callback = (
-            self.begin_callback
         )
 
 
@@ -211,8 +192,13 @@ class SleepingHallView(discord.ui.View):
 
 
         await interaction.response.edit_message(
-            embed=get_sleeping_hall_embed(hero),
+
+            embed=get_sleeping_hall_embed(
+                hero
+            ),
+
             view=self
+
         )
 
 
@@ -222,13 +208,13 @@ class SleepingHallView(discord.ui.View):
         interaction: discord.Interaction
     ):
 
-        modal = HeroSearchModal(
-            self
-        )
-
 
         await interaction.response.send_modal(
-            modal
+
+            HeroSearchModal(
+                self
+            )
+
         )
 
 
@@ -238,7 +224,57 @@ class SleepingHallView(discord.ui.View):
         interaction: discord.Interaction
     ):
 
+
         hero = self.get_current_hero()
+
+
+        if hero is None:
+
+
+            await interaction.response.send_message(
+
+                "❌ No sleeping Hero found.",
+
+                ephemeral=True
+
+            )
+
+            return
+
+
+
+        # =====================================
+        # SAVE HERO BOND
+        # =====================================
+
+        player = PlayerService.assign_hero(
+
+            self.player_id,
+
+            hero["id"]
+
+        )
+
+
+        if player is None:
+
+
+            await interaction.response.send_message(
+
+                "❌ The Soul Core could not bind this Hero.",
+
+                ephemeral=True
+
+            )
+
+            return
+
+
+
+        print(
+            f"⚔ Hero bonded: {hero['name']} -> {self.player_id}"
+        )
+
 
 
         embed = discord.Embed(
@@ -263,13 +299,20 @@ class SleepingHallView(discord.ui.View):
         )
 
 
+
         view = OathCeremonyView(
+
             hero,
+
             self.player_id
+
         )
 
 
         await interaction.response.edit_message(
+
             embed=embed,
+
             view=view
+
         )

@@ -33,6 +33,9 @@ async def load_extensions():
         "bot.commands.profile"
     )
 
+    await bot.load_extension(
+        "bot.commands.battle"
+    )
 
 @bot.event
 async def on_ready():

@@ -1,4 +1,5 @@
 import discord
+import traceback
 
 from discord.ext import commands
 from discord import app_commands
@@ -17,7 +18,6 @@ class Start(commands.Cog):
         self.bot = bot
 
 
-
     @app_commands.command(
         name="start",
         description="Resume your journey in Soul World."
@@ -27,6 +27,10 @@ class Start(commands.Cog):
         interaction: discord.Interaction
     ):
 
+        await interaction.response.defer(
+            ephemeral=True
+        )
+
         try:
 
             discord_id = str(
@@ -35,13 +39,17 @@ class Start(commands.Cog):
 
 
             # ---------------------------------
-            # Load / Create Player
+            # Load Player
             # ---------------------------------
 
             player = PlayerService.get_player(
                 discord_id
             )
 
+
+            # ---------------------------------
+            # New Wanderer
+            # ---------------------------------
 
             if player is None:
 
@@ -66,11 +74,11 @@ class Start(commands.Cog):
                 )
 
 
-
             # ---------------------------------
-            # Journey Gateway
+            # Continue Journey
             # ---------------------------------
 
+            print("🚪 ENTERING JOURNEY GATEWAY")
             await JourneyGateway.resume(
 
                 interaction,
@@ -80,30 +88,30 @@ class Start(commands.Cog):
                 self.bot
 
             )
+            print("🚪 JOURNEY GATEWAY FINISHED")
 
 
         except Exception as e:
-
+            traceback.print_exc()
             print(
                 "START ERROR:",
                 repr(e)
             )
 
+            await interaction.followup.send(
 
-            if not interaction.response.is_done():
+                f"An error occurred:\n```{e}```",
 
-                await interaction.response.send_message(
+                ephemeral=True
 
-                    f"An error occurred:\n```{e}```",
-
-                    ephemeral=True
-
-                )
+            )
 
 
 
 async def setup(bot):
 
     await bot.add_cog(
+
         Start(bot)
+
     )

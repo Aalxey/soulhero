@@ -1,0 +1,91 @@
+{
+  "Tank": {
+    "base": {
+      "max_hp": 140,
+      "attack": 10,
+      "defense": 16,
+      "speed": 8
+    },
+    "growth": {
+      "max_hp": 6,
+      "attack": 1,
+      "defense": 2,
+      "speed": 1
+    }
+  },
+
+  "Fighter": {
+    "base": {
+      "max_hp": 120,
+      "attack": 16,
+      "defense": 12,
+      "speed": 11
+    },
+    "growth": {
+      "max_hp": 5,
+      "attack": 2,
+      "defense": 2,
+      "speed": 1
+    }
+  },
+
+  "Assassin": {
+    "base": {
+      "max_hp": 80,
+      "attack": 22,
+      "defense": 6,
+      "speed": 18
+    },
+    "growth": {
+      "max_hp": 3,
+      "attack": 3,
+      "defense": 1,
+      "speed": 2
+    }
+  },
+
+  "Mage": {
+    "base": {
+      "max_hp": 90,
+      "attack": 20,
+      "defense": 8,
+      "speed": 13
+    },
+    "growth": {
+      "max_hp": 4,
+      "attack": 3,
+      "defense": 1,
+      "speed": 1
+    }
+  },
+
+  "Marksman": {
+    "base": {
+      "max_hp": 95,
+      "attack": 19,
+      "defense": 9,
+      "speed": 14
+    },
+    "growth": {
+      "max_hp": 4,
+      "attack": 3,
+      "defense": 1,
+      "speed": 2
+    }
+  },
+
+  "Support": {
+    "base": {
+      "max_hp": 110,
+      "attack": 13,
+      "defense": 12,
+      "speed": 12
+    },
+    "growth": {
+      "max_hp": 5,
+      "attack": 1,
+      "defense": 2,
+      "speed": 2
+    }
+  }
+}

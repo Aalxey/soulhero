@@ -14,9 +14,17 @@ class PlayerService:
         discord_id: str
     ):
 
-        return PlayerRepository.get_by_discord_id(
+        player = PlayerRepository.get_by_discord_id(
             str(discord_id)
         )
+
+        if player:
+
+            player.journey_state = JourneyState(
+                player.journey_state
+            )
+
+        return player
 
 
 
@@ -181,7 +189,7 @@ class PlayerService:
 
 
     @staticmethod
-    def collapse_ruins(
+    def start_collapse(
         discord_id: str
     ):
 
@@ -197,21 +205,6 @@ class PlayerService:
             return None
 
 
-
-        # ---------------------------------
-        # Forgotten Ruins collapse happens
-        # after oath completion.
-        #
-        # Flow:
-        # OATH_COMPLETE
-        #       |
-        #       v
-        # Break Ancient Seal
-        #       |
-        #       v
-        # OATHBOUND
-        # ---------------------------------
-
         if (
             player.journey_state
             != JourneyState.OATH_COMPLETE
@@ -220,12 +213,35 @@ class PlayerService:
             return player
 
 
-
         return PlayerRepository.update(
             player,
 
-            journey_state=JourneyState.OATHBOUND,
+            journey_state=JourneyState.COLLAPSE
+        )
 
+
+
+    @staticmethod
+    def become_oathbound(
+        discord_id: str
+    ):
+
+        player = PlayerService.get_player(
+            discord_id
+        )
+
+
+        if player is None:
+            return None
+
+
+        if player.journey_state != JourneyState.COLLAPSE:
+            return player
+
+
+        return PlayerRepository.update(
+            player,
+            journey_state=JourneyState.OATHBOUND,
             oathbound_date=datetime.utcnow()
         )
 

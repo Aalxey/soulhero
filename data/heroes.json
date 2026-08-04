@@ -2,666 +2,5587 @@
   {
     "id": 1,
     "name": "Aamon",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "Standard melee/ranged attack.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Night Raid",
+        "description": "Dashes to a target dealing physical damage and marking them.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Shadow Escape",
+        "description": "Enters stealth and gains bonus movement speed.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Devastating Vengeance",
+        "description": "Dashes rapidly among marked enemies dealing physical damage to each.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 2,
     "name": "Akai",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "Standard melee attack.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Iron Fist",
+        "description": "Slams forward dealing physical damage and slowing enemies.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Panda's Roll",
+        "description": "Rolls forward, damaging and knocking enemies away on impact.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Return the Moon",
+        "description": "Grabs nearby enemies and slams them, dealing heavy physical damage and stunning.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 3,
     "name": "Aldous",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "Standard melee attack.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Ancient Sword",
+        "description": "Punches forward dealing physical damage scaling with stacks.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "War Axe",
+        "description": "Dashes to a location, gaining bonus attack speed.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Refined Sword: Zenith",
+        "description": "Deals massive physical damage to an enemy based on his stacks.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 4,
     "name": "Alice",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "Standard melee attack.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Blood Bank",
+        "description": "Fires blood needles dealing magic damage and healing Alice.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Blood Sucker",
+        "description": "Marks enemies in an area, draining HP as magic damage over time.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Perpetual Youth",
+        "description": "Pulls in nearby enemies and deals continuous magic damage while draining HP.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 5,
     "name": "Alpha",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "Standard melee attack.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Blade of Heaven",
+        "description": "Slashes forward, dealing physical damage and marking the location.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Time Bomb",
+        "description": "Detonates a bomb at the marked location dealing physical damage.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Photon Strike",
+        "description": "Summons Bishop to strike an area, dealing heavy physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 6,
     "name": "Alucard",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "Standard melee attack.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Groundsplitter",
+        "description": "Leaps to a location dealing physical damage in an area.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Whirling Smash",
+        "description": "Spins dealing repeated physical damage and gaining a shield/lifesteal.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Fission Wave",
+        "description": "Dashes through an enemy dealing massive physical damage, can bounce again after a kill.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 7,
     "name": "Angela",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "Standard ranged attack.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Puff Ball",
+        "description": "Throws a ball dealing magic damage and slowing enemies hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Heart Link",
+        "description": "Merges with an ally, sharing damage taken and granting bonuses.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Guardian Rays",
+        "description": "Fires converging rays from the sky dealing magic damage and stunning.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 8,
     "name": "Argus",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "Standard melee attack.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Sword of Deliverance",
+        "description": "Slashes forward dealing physical damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Purgatory Chains",
+        "description": "Throws a chain dealing physical damage and pulling enemies hit.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Deicide",
+        "description": "Deals repeated physical damage to a target, healing Argus based on damage dealt.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 9,
     "name": "Arlott",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "Standard melee attack.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Roseate Elegy",
+        "description": "Dashes forward dealing physical damage to enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Chivalry's Reckoning",
+        "description": "Dodges in a direction, avoiding damage while repositioning.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "The Ardent Knight's Vow",
+        "description": "Locks a target and deals repeated physical damage over the duration.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 10,
     "name": "Atlas",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "Standard melee attack.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Anchor Lash",
+        "description": "Throws chains dealing magic damage and pulling himself to enemies hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Fatal Vortex",
+        "description": "Pulls nearby enemies toward him, dealing magic damage.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Death Embrace",
+        "description": "Leaps and binds all nearby enemies, dealing magic damage and stunning at range.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 11,
     "name": "Aulus",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "Standard melee attack, enhanced further at max Fighting Spirit stacks.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Gladius Strike",
+        "description": "Slashes forward dealing physical damage to enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Legion's Advance",
+        "description": "Charges forward dealing physical damage and gaining a shield.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Eagle's Wrath",
+        "description": "Deals repeated physical damage to nearby enemies while spinning his blade.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 12,
     "name": "Aurora",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Frost Shock",
+        "description": "Fires an ice shard dealing magic damage and slowing enemies hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Ice Barrier",
+        "description": "Shields herself and slows nearby enemies while it lasts.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Freezing Explosion",
+        "description": "Deals magic damage and freezes enemies in an area.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 13,
     "name": "Badang",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Flying Draw",
+        "description": "Grabs an enemy and pulls them close, dealing physical damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Nine Trueflame",
+        "description": "Punches forward dealing physical damage and stacking damage on the target.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Fist of Boundary",
+        "description": "Consumes stacks to deal a massive physical damage punch, knocking enemies back.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 14,
     "name": "Balmond",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Lethal Blade",
+        "description": "Slashes forward dealing physical damage in an area.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Wolf Totem",
+        "description": "Throws a totem that pulses damage and reveals the area.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "War Axe",
+        "description": "Massive spinning axe throw dealing heavy physical damage in a line.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 15,
     "name": "Bane",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Concentrated Energy",
+        "description": "Fires a bubble that deals damage and slows the first enemy hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Electric Charge",
+        "description": "Charges a shockwave dealing area damage that can be aimed while charging.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Tyrant's Roar",
+        "description": "Summons a giant octopus that slams the target area dealing heavy damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 16,
     "name": "Barats",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Warpike Assault",
+        "description": "Slams forward dealing physical damage and knocking enemies back.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Warpike Sweep",
+        "description": "Spins dealing physical damage to nearby enemies and gaining a shield.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Titanic Cataclysm",
+        "description": "Charges then slams the ground dealing massive physical damage in a line.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 17,
     "name": "Baxia",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Wild Chase",
+        "description": "Dashes forward dealing magic damage and knocking enemies back.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Tortoise Assault",
+        "description": "Gains a shield and slows nearby enemies while active.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Wrath of the Wild",
+        "description": "Charges then slams an area dealing magic damage and stunning enemies.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 18,
     "name": "Beatrix",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Ceceilia's Overdrive",
+        "description": "Fires an empowered burst from her current weapon dealing physical damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Fire Missile / Bianca's Rage",
+        "description": "Weapon-dependent skill dealing physical damage in an area.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Renner: Wrath of Gusion",
+        "description": "Switches to a legendary weapon dealing massive physical damage over time.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 19,
     "name": "Belerick",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Sturdy Vine",
+        "description": "Whips forward dealing magic damage and slowing enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Wall of Thorns",
+        "description": "Gains bonus armor/regen scaled to nearby enemies.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Nature's Tenacity",
+        "description": "Deals magic damage over time to nearby enemies and heals for damage dealt.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 20,
     "name": "Benedetta",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Grace Torrent",
+        "description": "Dashes forward slashing enemies dealing physical damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Twirling Sword",
+        "description": "Spins her sword, becoming immune to crowd control briefly.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Rondo of the Wind",
+        "description": "Deals massive physical damage and stuns enemies based on stacked debuffs.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 21,
     "name": "Brody",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Devastating Blow",
+        "description": "Fires a shot dealing physical damage, larger when rage is full.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Ares' Domain",
+        "description": "Deals physical damage and slows enemies in a zone around Brody.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Vengeance Blast",
+        "description": "Fires a piercing shot dealing massive physical damage across a line.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 22,
     "name": "Bruno",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Flame Shot",
+        "description": "Fires a curving ball of energy dealing physical damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Untouchable",
+        "description": "Passive-triggered dash that increases attack speed temporarily.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Showdown",
+        "description": "Fires a giant piercing ball dealing heavy physical damage along its path.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 23,
     "name": "Carmilla",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Ice Age",
+        "description": "Freezes and damages enemies in a target area with magic damage.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Radiant Grace",
+        "description": "Shields a target ally and grants bonus movement speed.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Dark Waltz",
+        "description": "Deals continuous magic damage and slows all enemies in a large area.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 24,
     "name": "Cecilion",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Bats Storm",
+        "description": "Deals magic damage in a growing area centered on Cecilion.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Endless Hunger",
+        "description": "Fires a slow-moving orb dealing magic damage and slowing enemies hit.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Noxious Swarm",
+        "description": "Summons bats that circle and deal continuous magic damage in an area.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 25,
     "name": "Chang'e",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Starmoon Guard",
+        "description": "Creates a crescent that deals magic damage and can be launched later.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Starmoon Comet",
+        "description": "Launches a placed crescent dealing magic damage in a line.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Moon Fall",
+        "description": "Summons multiple crescents around her dealing magic damage over an area.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 26,
     "name": "Chip",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Byte Beam",
+        "description": "Fires a beam dealing magic damage to enemies in a line.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "System Overload",
+        "description": "Attaches to an ally granting bonus stats and shared cooldown reduction.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Grand Compilation",
+        "description": "Deals magic damage in a large area and disrupts enemy skills briefly.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 27,
     "name": "Chou",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Jeet Kune Do",
+        "description": "Dashes forward dealing physical damage and knocking enemies aside.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Shunpo",
+        "description": "Teleports a short distance, avoiding damage while dashing.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Savage Kick",
+        "description": "Kicks the target dealing physical damage and knocking them back across the map.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 28,
     "name": "Cici",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Solar Flare",
+        "description": "Slashes forward dealing physical damage in a cone.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Skybound Dance",
+        "description": "Leaps dealing physical damage and briefly evading attacks.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Radiant Finale",
+        "description": "Spins in an area dealing repeated physical damage to nearby enemies.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 29,
     "name": "Claude",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Art of Thievery",
+        "description": "Fires shots with Dexter dealing physical damage and stealing gold on kill.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Spinning Blade Storm",
+        "description": "Spins with Dexter dealing physical damage around him, gains attack speed.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Battle Mirror Image: Ultimate",
+        "description": "Deploys Dexter to mirror his attacks against a wide area.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 30,
     "name": "Clint",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Explosive Trap",
+        "description": "Places a trap that knocks back and damages enemies who trigger it.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Grapple Hook",
+        "description": "Hooks onto an enemy hero or terrain, pulling himself or the target.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Total Payback",
+        "description": "Fires a barrage of piercing shots across the battlefield dealing physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 31,
     "name": "Cyclops",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Soul Cannon",
+        "description": "Fires a charged blast dealing magic damage; longer charge increases range.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Sighting From the Tower",
+        "description": "Marks an area, revealing and damaging enemies within it.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Laser Storm",
+        "description": "Fires a barrage of orbs across the battlefield dealing magic damage.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 32,
     "name": "Diggie",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Time Journey",
+        "description": "Becomes invulnerable and returns to his position from moments ago.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Elusive Egg",
+        "description": "Turns into an egg, immune to damage and crowd control briefly.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Reverse Time",
+        "description": "Removes crowd control and buffs from all nearby heroes.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 33,
     "name": "Dyrroth",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Devil Cleave",
+        "description": "Slashes forward dealing physical damage and gaining bonus stats.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Abyssal Deviant",
+        "description": "Fires a piercing spear dealing physical damage and slowing enemies hit.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Blade of Torment",
+        "description": "Deals massive physical damage in a line, splitting into a wider arc.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 34,
     "name": "Edith",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Rolling Rebound",
+        "description": "Mech form dashes dealing magic damage; consumes armor to power skills.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Vengeful Volt",
+        "description": "Fires shots in human form dealing physical damage after exiting the mech.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Wings of Fate",
+        "description": "Grabs and carries an enemy in mech form, slamming them for magic damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 35,
     "name": "Esmeralda",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Roll Straight Ball",
+        "description": "Rolls forward dealing magic damage and gaining a shield.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Butterfly Wandering",
+        "description": "Grants herself and target ally a shield.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Petals in Chaos",
+        "description": "Pulls in nearby enemies and deals continuous magic damage in an area.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 36,
     "name": "Estes",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Firefly Gleam",
+        "description": "Fires seeds dealing magic damage to enemies in a line.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Woodland Recovery",
+        "description": "Heals a target ally over time.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Fairy Blessing",
+        "description": "Continuously heals all nearby allies for a duration.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 37,
     "name": "Eudora",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Electric Rings",
+        "description": "Slows enemies in an area and deals magic damage over time.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Power of Fate",
+        "description": "Fires a bolt of lightning dealing magic damage to the target.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Occult Impact",
+        "description": "Detonates lightning around a target dealing massive magic damage and stunning.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 38,
     "name": "Fanny",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Steel Cable",
+        "description": "Fires cables that Fanny can pull herself toward at high speed.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Cut Throat",
+        "description": "Dashes forward slashing enemies in her path dealing physical damage.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Slash of Concision",
+        "description": "Spins her blade dealing physical damage to nearby enemies.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 39,
     "name": "Faramis",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Soul Bond",
+        "description": "Links to an ally, dealing magic damage to nearby enemies and healing based on link.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Fiendish Fear",
+        "description": "Deals magic damage and fears enemies in an area.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Ghastly Reunion",
+        "description": "Revives fallen allies at Faramis's location if within range and time limit.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 40,
     "name": "Floryn",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Root of Life",
+        "description": "Heals the ally with the lowest HP percentage in range.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Nature's Rythm",
+        "description": "Deals magic damage while healing herself, scaling with target choice.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Flourishing Splendor",
+        "description": "Grants nearby allies a large shield and bonus stats for a duration.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 41,
     "name": "Franco",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Iron Hook",
+        "description": "Throws a hook that pulls the first enemy hit toward him.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Fury Shock",
+        "description": "Slams the ground dealing magic damage and slowing enemies in range.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Garrote Restraint",
+        "description": "Traps himself and nearby enemies in a fence, dealing repeated magic damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 42,
     "name": "Fredrinn",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Havoc Zone",
+        "description": "Slams the ground dealing physical damage and marking enemies in range.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Chained Fury",
+        "description": "Dashes to a marked enemy dealing physical damage.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Havoc Judgement",
+        "description": "Slams down dealing massive physical damage and stunning enemies in the area.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 43,
     "name": "Freya",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Crescent Sword",
+        "description": "Throws her sword in an arc dealing physical damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Valkyrie Rush",
+        "description": "Dashes through enemies dealing physical damage.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Valhalla's Wrath",
+        "description": "Transforms with holy armor, gaining bonus stats and a damaging aura.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 44,
     "name": "Gatotkaca",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Combo Punch",
+        "description": "Punches forward dealing physical damage and reducing enemy attack speed.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Iron Defense",
+        "description": "Shields himself and gains bonus armor for a duration.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Vajra's Wrath",
+        "description": "Leaps to a location dealing physical damage and knocking enemies up.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 45,
     "name": "Gloo",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Slingshot",
+        "description": "Launches himself forward dealing magic damage and slowing enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Sludge Blast",
+        "description": "Deals magic damage and slows nearby enemies.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Muddy Escapade",
+        "description": "Attaches to an enemy hero, and later slams to their location dealing magic damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 46,
     "name": "Gord",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Vale of Magic",
+        "description": "Fires a ball of energy dealing magic damage to the first enemy hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Vengeance of Nature",
+        "description": "Roots and damages enemies in a target area with magic damage.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Sacrifice My Deity",
+        "description": "Channels a massive beam dealing continuous magic damage in a line.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 47,
     "name": "Granger",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Rhapsody Sonata",
+        "description": "Fires bullets dealing physical damage; empowered shots deal splash damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Death Sonata",
+        "description": "Dashes a short distance, briefly gaining bonus attack speed.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Rondo of Requiem",
+        "description": "Fires a massive piercing blast dealing heavy physical damage across a line.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 48,
     "name": "Grock",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Vulcan's Wrath",
+        "description": "Smashes the ground dealing physical damage and knocking enemies up.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Guardian Shield",
+        "description": "Shields himself, damaging and knocking back enemies who attack him.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Valley of Terror",
+        "description": "Slams the ground in front dealing physical damage and creating a wall.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 49,
     "name": "Guinevere",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Wings of Justice",
+        "description": "Dashes to enemies dealing magic damage and marking them.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Wings of Radiance",
+        "description": "Slashes an area dealing magic damage and knocking marked enemies up.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Wings of Dawn",
+        "description": "Launches marked enemies into the air, dealing massive magic damage on landing.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 50,
     "name": "Gusion",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Sword Vortex",
+        "description": "Throws daggers dealing magic damage; can teleport to them.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Dagger Storm",
+        "description": "Throws all daggers in a spread dealing magic damage.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Incandescence",
+        "description": "Marks a target with all daggers, exploding for massive magic damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 51,
     "name": "Hanabi",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Petal Barrier",
+        "description": "Shields herself, reflecting projectiles briefly.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Fervor Bomb",
+        "description": "Fires a bouncing bomb dealing physical damage between nearby enemies.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Blossom Blade",
+        "description": "Fires a giant piercing blade dealing physical damage across a line.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 52,
     "name": "Hanzo",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Ninjutsu: Art of Susano",
+        "description": "Summons a spirit that dashes forward dealing physical damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Ninjutsu: Art of Kunai",
+        "description": "Throws kunai in a cone dealing physical damage.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Ninjutsu: Art of the Nine Tails",
+        "description": "Transforms into a fox spirit dealing physical damage while roaming as a scout.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 53,
     "name": "Harith",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Quantum Speed",
+        "description": "Dashes forward, becoming briefly untargetable.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Wave of Light",
+        "description": "Deals magic damage in an arc in front of him.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Final Wave",
+        "description": "Slams the ground repeatedly dealing magic damage in an area.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 54,
     "name": "Harley",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Space Shifter",
+        "description": "Teleports a short distance, marking his prior location to return to.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Master of Magic",
+        "description": "Fires magic missiles dealing magic damage to enemies in range.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Wild Card",
+        "description": "Throws cards dealing magic damage and stunning enemies hit.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 55,
     "name": "Hayabusa",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Phantom Shuriken",
+        "description": "Throws shurikens dealing physical damage and marking a shadow location.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Quad Shadow",
+        "description": "Summons shadows around him that can be teleported to.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Ougi: Rasengan",
+        "description": "Dashes to enemies dealing repeated physical damage in a flurry.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 56,
     "name": "Helcurt",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Fatal Venom",
+        "description": "Deals physical damage and applies a poison effect that reduces armor.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Shadow Explosion",
+        "description": "Deals physical damage and silences enemies in an area.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Nightfall",
+        "description": "Blinds nearby enemies' vision and disables their minimaps briefly.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 57,
     "name": "Hilda",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Iron Nail Slam",
+        "description": "Slams her hammer dealing physical damage and briefly slowing.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Rock Formation",
+        "description": "Marks an area, granting a speed boost when re-entering it.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Wilderness Might",
+        "description": "Empowers her next attacks with bonus physical damage and lifesteal.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 58,
     "name": "Hirara",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Crescent Cut",
+        "description": "Slashes forward dealing physical damage to enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Shadow Step",
+        "description": "Dashes a short distance, briefly evading incoming attacks.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Twilight Reckoning",
+        "description": "Deals massive physical damage to a single target, executing low-HP enemies.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 59,
     "name": "Hylos",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Thorny Vines",
+        "description": "Roots enemies in an area, dealing magic damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Rising Vines",
+        "description": "Gains a shield and pulls enemies toward him.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Wrecking Ball",
+        "description": "Rolls forward dealing magic damage and knocking enemies away.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 60,
     "name": "Irithel",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Corrosion Arrow",
+        "description": "Fires piercing arrows dealing physical damage in a line.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Force of the Wild",
+        "description": "Leaps backward, briefly increasing attack speed.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Ballista",
+        "description": "Fires a giant arrow dealing massive physical damage to the first enemy hit.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 61,
     "name": "Ixia",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Full Metal Barrage",
+        "description": "Fires a spread of bullets dealing physical damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Trueshot Formation",
+        "description": "Deploys a turret that fires alongside Ixia for a duration.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Ceaseless Interrogation",
+        "description": "Fires a piercing volley across the battlefield dealing physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 62,
     "name": "Jawhead",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Iron Cutter",
+        "description": "Slashes forward dealing physical damage and pulling the target closer.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Grab and Throw",
+        "description": "Grabs an enemy, carries and throws them, dealing physical damage.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Undefeated Whirlwind",
+        "description": "Spins dealing repeated physical damage to nearby enemies.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 63,
     "name": "Johnson",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Rolling Strike",
+        "description": "Transforms and rams forward dealing magic damage and stunning enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Passenger Seat",
+        "description": "Invites an ally into his car for a shared ride.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Ultimate Force",
+        "description": "Launches toward a location dealing area magic damage and stunning enemies on landing.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 64,
     "name": "Joy",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Ballistix Deploy",
+        "description": "Deploys energy discs that Joy can bounce between.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Elastic Slash",
+        "description": "Slashes forward dealing physical damage while bouncing between discs.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Kinetic Overload",
+        "description": "Deals repeated physical damage to enemies while rapidly rebounding around them.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 65,
     "name": "Julian",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Swift Blade",
+        "description": "Dashes forward dealing physical damage, switching stances after use.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Vengeful Slash",
+        "description": "Slashes dealing physical damage, effect changes based on active stance.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Ashes of Redemption",
+        "description": "Deals massive physical damage in a line, executing low-HP enemies.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 66,
     "name": "Kadita",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Deadly Blossom",
+        "description": "Slashes forward dealing magic damage and pulling enemies together.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Coral Kingdom",
+        "description": "Roots and damages enemies in a target area with magic damage.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Nautical Nightmare",
+        "description": "Deals massive magic damage to enemies below a HP threshold.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 67,
     "name": "Kagura",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Shadow Umbrella",
+        "description": "Throws her umbrella dealing magic damage and slowing enemies hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Aurora Blast",
+        "description": "Teleports to her umbrella and deals magic damage in an area.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Rain of Sakura",
+        "description": "Launches nearby enemies into the air and later slams them for magic damage.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 68,
     "name": "Kaja",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Judgement Spear",
+        "description": "Throws a spear dealing magic damage and revealing enemies hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Restraining Chains",
+        "description": "Chains an enemy, dealing magic damage and pulling toward Kaja if it hits again.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Divine Judgement",
+        "description": "Grabs a target and pulls them through the air to Kaja.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 69,
     "name": "Kalea",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Binding Grasp",
+        "description": "Grabs an enemy dealing physical damage and pulling them toward Kalea.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Restorative Pulse",
+        "description": "Heals a target ally and grants a brief shield.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Guardian's Judgement",
+        "description": "Knocks up nearby enemies dealing damage, healing allies caught in the radius.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 70,
     "name": "Karina",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Dancing Blade",
+        "description": "Throws blades outward dealing magic damage to enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Purge",
+        "description": "Spins her blades around, damaging and marking enemies in range.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Homing Missile",
+        "description": "Fires piercing blades at a target, dealing bonus magic damage based on missing HP.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 71,
     "name": "Karrie",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Wild Chase",
+        "description": "Dashes toward an enemy dealing physical damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Twin Bee Sting",
+        "description": "Marks an enemy, causing basic attacks against them to deal bonus true damage.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Starlium Blast",
+        "description": "Fires a piercing beam that ignores shields dealing physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 72,
     "name": "Khaleed",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Skyward Sand",
+        "description": "Slams the ground dealing physical damage and knocking enemies up.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Sand Cyclone",
+        "description": "Charges forward dealing physical damage, faster within his sandstorm.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Rising Sands",
+        "description": "Creates a sandstorm zone that empowers Khaleed's stats while inside it.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 73,
     "name": "Khufra",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Bouncing Ball",
+        "description": "Rolls forward dealing magic damage and stopping on hitting a hero.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Spining Roll",
+        "description": "Rolls in place dealing magic damage and knocking enemies away.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Bounce Ban",
+        "description": "Traps an enemy in a bubble, dealing magic damage and preventing dashes.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 74,
     "name": "Kimmy",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Steampower Slug",
+        "description": "Fires a heavy shot dealing damage matching her current mode.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Wind of Wrath",
+        "description": "Gains bonus movement/attack speed and briefly increased range.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Magic Missile Fixation",
+        "description": "Fires a barrage of piercing missiles dealing magic damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 75,
     "name": "Lancelot",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Thorned Rose",
+        "description": "Dashes forward dealing physical damage, refreshed by hitting enemies.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Point Blank",
+        "description": "Dashes around a target dealing physical damage and briefly becoming untargetable.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Sword Freeze",
+        "description": "Deals physical damage and slows all enemies within range.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 76,
     "name": "Lapu-Lapu",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Sacred Blade",
+        "description": "Slashes forward dealing physical damage in his current stance.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "War Stance",
+        "description": "Switches between Sword and Shield stances, altering his skill effects.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Justice Blade",
+        "description": "Slashes around him repeatedly dealing heavy physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 77,
     "name": "Layla",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Void Projectile",
+        "description": "Fires a piercing shot dealing physical damage along its path.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Target Purge",
+        "description": "Reveals stealthed enemies in an area and applies a slow.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Destruction Rush",
+        "description": "Channels and fires a massive laser dealing heavy physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 78,
     "name": "Leomord",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Fissure Strike",
+        "description": "Slashes forward dealing physical damage and slowing enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Spectral Steed",
+        "description": "Summons or dismisses his mount, dealing physical damage on summon.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Duel of Blades",
+        "description": "Executes a low-HP enemy dealing massive true-scaling physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 79,
     "name": "Lesley",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Leg Day",
+        "description": "Kicks backward dealing physical damage and gaining a burst of speed.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Master Camouflage",
+        "description": "Enters stealth, breaking on attack for bonus critical damage.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Ace Shot",
+        "description": "Fires a piercing shot across the map dealing heavy physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 80,
     "name": "Ling",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Ethereal Sword: Fatal",
+        "description": "Dashes forward slashing dealing physical damage to enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Sword Reincarnation: Havoc",
+        "description": "Consumes charges to dash multiple times dealing physical damage.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Sword Freeze: Eternal",
+        "description": "Deals physical damage and briefly stuns all enemies hit.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 81,
     "name": "Lolita",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Force of Fate",
+        "description": "Deploys a shield that blocks incoming projectiles and damages enemies who touch it.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Fickle Blitz",
+        "description": "Fires missiles at a location, dealing magic damage and knocking enemies back.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Absolute Defense",
+        "description": "Grants herself and nearby allies a shield that reflects projectiles.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 82,
     "name": "Lukas",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Boombox Bash",
+        "description": "Slams forward dealing physical damage in an area.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Sound Wave",
+        "description": "Fires a wave dealing physical damage and knocking enemies back.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Encore Finale",
+        "description": "Deals repeated physical damage in a large area around Lukas.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 83,
     "name": "Lunox",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Void Rift / Winter Crystal",
+        "description": "Light or Chaos versions deal magic damage differently based on active mode.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Endless Battlefield / Nether Core",
+        "description": "Grants a shield or slow depending on active mode, both with magic damage components.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Cosmic Ring",
+        "description": "Deals massive magic damage in an area, effect changes based on Light/Chaos balance.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 84,
     "name": "Luo Yi",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Northern Star Sword",
+        "description": "Fires a wave dealing magic damage in a line.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Astral Sword Formation",
+        "description": "Deals magic damage and slows enemies inside a rotating formation.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Astral Displacement",
+        "description": "Swaps positions with a marked enemy dealing magic damage on arrival.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 85,
     "name": "Lylia",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Portal Dive",
+        "description": "Teleports and deals magic damage to enemies at the destination.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Sinister Shadow",
+        "description": "Summons a demonic aura dealing continuous magic damage around her phantom.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Chaotic Roar",
+        "description": "Deals massive magic damage in a large area around Lylia.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 86,
     "name": "Marcel",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Warding Pulse",
+        "description": "Deals magic damage to nearby enemies and shields nearby allies.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Steadfast Guard",
+        "description": "Grants a shield and bonus armor to a target ally.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Bulwark's Resolve",
+        "description": "Creates a zone that damages enemies and shields allies inside it.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 87,
     "name": "Martis",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Sword of Trials",
+        "description": "Dashes forward dealing physical damage to enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Dance of Blades",
+        "description": "Slashes around him dealing physical damage and gaining lifesteal.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Rising Dragon Strike",
+        "description": "Locks onto a target and lands a series of physical damage hits.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 88,
     "name": "Masha",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Iron Fist",
+        "description": "Punches forward dealing physical damage and applying a slow.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Berserk Fury",
+        "description": "Gains bonus attack speed and immunity to slow effects.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Wild Fury",
+        "description": "Deals repeated physical damage to a single target, healing based on damage dealt.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 89,
     "name": "Mathilda",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Butterfly Blade",
+        "description": "Throws a returning blade dealing physical damage to enemies hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Space Amelioration",
+        "description": "Dashes and grants a shield and speed boost to a nearby ally.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Dimension of Sanctuary",
+        "description": "Creates a zone that grants bonus movement speed and vision to allies inside.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 90,
     "name": "Melissa",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Puppet Strings",
+        "description": "Fires shots dealing physical damage, aided by her doll.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Guardian Doll",
+        "description": "Sends her doll to shield or scout an area for allies.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Finale of Strings",
+        "description": "Fires a massive coordinated barrage with her doll dealing physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 91,
     "name": "Minotaur",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Rising Anger",
+        "description": "Builds rage which empowers his next Fury Swipe.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Fury Swipes",
+        "description": "Smashes the ground dealing physical damage and knocking enemies up.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Berserker's Roar",
+        "description": "Roars, stunning nearby enemies and healing himself and nearby allies.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 92,
     "name": "Minsitthar",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Angkasa Lasso",
+        "description": "Throws a lasso dealing physical damage and pulling the target.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Avalanche Assault",
+        "description": "Charges forward dealing physical damage and slowing enemies hit.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Ancient Sword Summon",
+        "description": "Summons swords around a target area dealing physical damage and slowing.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 93,
     "name": "Miya",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Rain of Arrows",
+        "description": "Fires arrows in a cone dealing physical damage to enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Hunter's Steps",
+        "description": "Increases movement speed and grants invisibility while moving.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Hidden Moonlight",
+        "description": "Creates illusions of Miya that fire alongside her for a duration.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 94,
     "name": "Moskov",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Spear of Quiescence",
+        "description": "Throws his spear dealing physical damage in a line.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Abyssal Spear",
+        "description": "Throws a bouncing spear dealing physical damage to multiple enemies.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Frenzied Thirst",
+        "description": "Fires a piercing shot along a line dealing massive physical damage and lifesteal.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 95,
     "name": "Nana",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Coco Pommander",
+        "description": "Throws a boomerang dealing magic damage, can be caught to reset cooldown.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Furry Throwing",
+        "description": "Turns an enemy into a harmless animal, dealing magic damage on cast.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Molina Miracle",
+        "description": "Summons a giant Molina that pulses continuous magic damage in an area.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 96,
     "name": "Natalia",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Shadow Grip",
+        "description": "Stealths Natalia and marks a target, slowing them when revealed.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Silent Blade",
+        "description": "Deals physical damage and briefly stuns a marked target.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Coup de Grace",
+        "description": "Deals massive true-scaling physical damage to a single target.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 97,
     "name": "Natan",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Piercing Round",
+        "description": "Fires a piercing shot dealing physical damage in a line.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Overdrive Shift",
+        "description": "Switches weapons, gaining a brief burst of attack speed.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "終 Finality Barrage",
+        "description": "Fires a massive barrage of shots dealing heavy physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 98,
     "name": "Nolan",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Shadow Strike",
+        "description": "Dashes forward dealing physical damage to enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Umbral Trap",
+        "description": "Deploys a trap that pulls and damages enemies who trigger it.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Twin Shadow Onslaught",
+        "description": "Attacks with his shadow simultaneously dealing massive physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 99,
     "name": "Novaria",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Elemental Wisp",
+        "description": "Summons a wisp that can be directed to deal magic damage.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Whispers of the Wild",
+        "description": "Deals magic damage in an area around the wisp's location.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Sylvan Overgrowth",
+        "description": "Roots and deals heavy magic damage to enemies caught in the wisp's zone.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 100,
     "name": "Obsidia",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Bone Splinter",
+        "description": "Fires bone shards dealing physical damage that scale with stacks.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Ossein Barrage",
+        "description": "Fires additional bone-shard shots alongside her basic attacks.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Skeletal Reckoning",
+        "description": "Unleashes a massive volley of bone shards dealing heavy physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 101,
     "name": "Odette",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Ripples",
+        "description": "Fires an orb dealing magic damage to the first enemy hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Elegance Ballet",
+        "description": "Deals magic damage in a large area around Odette.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Fetter of Cygnus",
+        "description": "Traps enemies in a zone dealing continuous magic damage over time.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 102,
     "name": "Paquito",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Wager Uppercut",
+        "description": "Punches upward dealing physical damage and launching enemies.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Explosive Spin Kick",
+        "description": "Kicks forward dealing physical damage and can be re-cast to dash again.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Golden Sledgehammer",
+        "description": "Delivers a massive punch dealing heavy physical damage and knockback.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 103,
     "name": "Pharsa",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Wind Blows",
+        "description": "Deals magic damage to enemies in a rotating area.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Feathered Air Strike",
+        "description": "Fires feathers dealing magic damage across a line.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Falcon Dive/Barrage",
+        "description": "Transforms into a falcon, firing a barrage of feathers dealing magic damage.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 104,
     "name": "Phoveus",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Chains of Torment",
+        "description": "Throws chains dealing physical damage and slowing enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Fel Rush",
+        "description": "Charges forward dealing physical damage and briefly fearing enemies hit.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Abyssal Punisher",
+        "description": "Deals massive physical damage to a single target and heals based on damage dealt.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 105,
     "name": "Popol and Kupa",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Wooden Totem",
+        "description": "Deploys a totem that fires arrows dealing physical damage in an area.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Vine Trap",
+        "description": "Sends Kupa to root and damage enemies in an area.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Totemic Ward",
+        "description": "Empowers the totem to fire massive arrows dealing physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 106,
     "name": "Rafaela",
-    "role": "Support"
+    "role": "Support",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Flash of Light",
+        "description": "Deals magic damage in an area and heals herself and allies.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Grace of Full Moon",
+        "description": "Grants a shield and bonus movement speed to allies in range.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Prayer of Holy Storm",
+        "description": "Pulls enemies together while healing allies with bonus attack speed.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 107,
     "name": "Roger",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Wolf Howl / Havoc Strike",
+        "description": "Human form fires a shot, or wolf form slashes, both dealing physical damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Drop Kick / Rampage",
+        "description": "Human form kicks enemies away, wolf form gains bonus attack speed.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Inner Beast",
+        "description": "Transforms permanently into wolf form for a duration with combat bonuses.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 108,
     "name": "Ruby",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Ruby Reflection",
+        "description": "Throws her weapon and pulls herself to it, damaging enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Fallen Feather",
+        "description": "Spins dealing repeated physical damage and healing based on damage dealt.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Twilight Slash",
+        "description": "Locks onto enemies, dealing physical damage and rooting them at the end.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 109,
     "name": "Saber",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Twin Sting",
+        "description": "Dashes forward twice, dealing physical damage to enemies in his path.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Shadow Slash",
+        "description": "Slashes around himself dealing physical damage.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Triple Sweep",
+        "description": "Locks a target and deals massive true-scaling physical damage in three strikes.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 110,
     "name": "Selena",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Rolling the Cage / Abyssal Arrow",
+        "description": "Elf form roots enemies; Abyssal form fires a piercing arrow, both dealing magic damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Entangling Vines / Abyssal Dance",
+        "description": "Elf form snares enemies; Abyssal form grants stealth and bonus movement speed.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Reap / Abyssal Reap",
+        "description": "Elf form fires a wide burst; Abyssal form deals massive execute damage to a single target.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 111,
     "name": "Silvanna",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Twin Wings Sword",
+        "description": "Slashes in a cross pattern dealing magic damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Rushing Blade",
+        "description": "Dashes forward dealing magic damage and slowing enemies hit.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Sunset Storm",
+        "description": "Traps a target, following them and dealing massive magic damage on release.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 112,
     "name": "Sora",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Riptide Slash",
+        "description": "Slashes forward dealing physical damage to enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Tidal Surge",
+        "description": "Dashes through enemies dealing physical damage.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Maelstrom Fury",
+        "description": "Deals repeated physical damage to nearby enemies over a short duration.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 113,
     "name": "Sun",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Golden Cudgel Strike",
+        "description": "Slams the cudgel dealing physical damage in an area.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Agility Buff",
+        "description": "Summons a clone that copies his basic attacks and skills.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Wind Blade Storm",
+        "description": "Spins his staff dealing continuous physical damage around him.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 114,
     "name": "Suyou",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Piercing Gale",
+        "description": "Dashes forward dealing physical damage to enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Sundering Blades",
+        "description": "Slashes around her dealing physical damage to nearby enemies.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Whirlwind Onslaught",
+        "description": "Dashes repeatedly among enemies dealing physical damage each hit.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 115,
     "name": "Terizla",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Grim Reaping",
+        "description": "Swings his axe dealing physical damage in an arc.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Nail Bat",
+        "description": "Slams the ground dealing physical damage and slowing enemies hit.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Tyrant Diagonal Cut",
+        "description": "Charges then slashes across a line dealing massive physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 116,
     "name": "Thamuz",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Fire Chain",
+        "description": "Throws a chain dealing physical damage and pulling himself to the target.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Molten Executioner",
+        "description": "Deals physical damage in a cone, doubled against low-HP enemies.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Berserk Blood",
+        "description": "Transforms, gaining a shield and dealing physical damage on attacks.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 117,
     "name": "Tigreal",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Attack Wave",
+        "description": "Slams the ground dealing magic damage and slowing enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Sacred Bulwark",
+        "description": "Charges forward, knocking up the first enemy hero hit.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Implosion",
+        "description": "Pulls all nearby enemies together and stuns them, dealing magic damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 118,
     "name": "Uranus",
-    "role": "Tank"
+    "role": "Tank",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Nucleus Reversal",
+        "description": "Deals magic damage and heals for the same amount split across allies.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Nano Cell Explosion",
+        "description": "Explodes dealing magic damage to nearby enemies.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Nano Reaper",
+        "description": "Attaches to a target dealing continuous magic damage and healing Uranus.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 119,
     "name": "Vale",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Wind Breeze",
+        "description": "Fires wind orbs dealing magic damage and knocking enemies in a direction.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Wind Wall",
+        "description": "Creates a barrier that blocks enemy dashes and projectiles.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Wind Fall",
+        "description": "Pulls enemies into the air then slams them down, dealing magic damage.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 120,
     "name": "Valentina",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Illusive Dash",
+        "description": "Dashes forward dealing magic damage to enemies hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Photon Rain",
+        "description": "Fires converging beams dealing magic damage in an area.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Copied Ultimate",
+        "description": "Casts a copy of a stolen enemy ultimate skill.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 121,
     "name": "Valir",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Fireball Barrage",
+        "description": "Fires fireballs dealing magic damage to the first enemies hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Flame Barrier",
+        "description": "Creates a wall of fire that damages and slows enemies passing through.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Falling Fireball",
+        "description": "Deals magic damage in a large area and applies a burning effect.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 122,
     "name": "Vexana",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Aggressive Crow",
+        "description": "Sends crows to a location dealing magic damage and revealing enemies.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Grasp of Death",
+        "description": "Roots and damages an enemy with magic damage.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Befallen Wrath",
+        "description": "Summons skeleton warriors around a target dealing magic damage and stun.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 123,
     "name": "Wanwan",
-    "role": "Marksman"
+    "role": "Marksman",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Twin Blades Fusion",
+        "description": "Fires a piercing bolt dealing physical damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Grapple Effect",
+        "description": "Dashes to a location, becoming untargetable briefly.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Vengeance Rush",
+        "description": "Fires a barrage of bolts dealing physical damage to enemies in range.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 124,
     "name": "X.Borg",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Fire Rush",
+        "description": "Dashes forward dealing physical damage and applying a burn.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Armor Enhancement",
+        "description": "Gains a shield and increases the burn duration on Fire Rush.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Great Vaporfire",
+        "description": "Fires a stream of flame in a direction dealing continuous physical damage.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 125,
     "name": "Xavier",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Meteor Strike",
+        "description": "Fires a projectile dealing magic damage to the first enemy hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Cosmic Ripple",
+        "description": "Detonates star fragments around a target dealing magic damage.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Nova Burst",
+        "description": "Fires a massive beam dealing continuous magic damage across a line.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 126,
     "name": "Yi Sun-shin",
-    "role": "Assassin"
+    "role": "Assassin",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Blade Sweep",
+        "description": "Slashes an area dealing physical damage and marking enemies hit.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Divine Punishment",
+        "description": "Fires arrows into an area dealing physical damage over time.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Mountain Shocker",
+        "description": "Rides a warship, ramming enemies and dealing physical damage and stun.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 127,
     "name": "Yin",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Dance of Wu Kong",
+        "description": "Dashes to an enemy dealing physical damage.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Havoc Combo",
+        "description": "Punches repeatedly dealing physical damage in a series.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Wrath of Karma",
+        "description": "Traps a target and copies a portion of damage dealt to them.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 128,
     "name": "Yu Zhong",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Wind Rider",
+        "description": "Dashes forward dealing physical damage and gaining a shield.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Blood Debt Must Be Repaid",
+        "description": "Whips a chain dealing physical damage and pulling enemies together.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Dragon Domain",
+        "description": "Transforms into a dragon, dealing physical damage and gaining sustain.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 129,
     "name": "Yve",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Meteor Shower",
+        "description": "Fires an orb that leaves stars behind dealing magic damage.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Stardust Road",
+        "description": "Fires a beam dealing magic damage and leaving stars along its path.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Gravitational Collapse",
+        "description": "Detonates all placed stars dealing magic damage in their areas.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 130,
     "name": "Zetian",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Runic Bolt",
+        "description": "Fires a bolt dealing magic damage to the first enemy hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Warding Sigil",
+        "description": "Deals magic damage and slows enemies within a marked zone.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Cataclysmic Rune",
+        "description": "Detonates all active zones dealing magic damage in their areas.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 131,
     "name": "Zhask",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Sinister Spirit",
+        "description": "Sends a spirit ball dealing magic damage to enemies hit.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Spawn Brood",
+        "description": "Summons an Obelisk that can be controlled separately to attack.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Nightmare Corrosion",
+        "description": "Deals continuous magic damage in an area around Zhask or the Obelisk.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 132,
     "name": "Zhuxin",
-    "role": "Mage"
+    "role": "Mage",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "magic",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Shadow Snare",
+        "description": "Roots an enemy dealing magic damage.",
+        "damage_type": "magic",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Puppet Switch",
+        "description": "Swaps position with her puppet, dealing magic damage at both locations.",
+        "damage_type": "magic",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Realm of Nightmares",
+        "description": "Deals continuous magic damage and disorients enemies in a large zone.",
+        "damage_type": "magic",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   },
   {
     "id": 133,
     "name": "Zilong",
-    "role": "Fighter"
+    "role": "Fighter",
+    "stat_modifier": {},
+    "skills": [
+      {
+        "slot": "basic_attack",
+        "true_name": "Basic Attack",
+        "description": "A standard attack using the hero's natural weapon or fighting style.",
+        "damage_type": "physical",
+        "power": 40,
+        "cooldown": 0
+      },
+      {
+        "slot": "skill_1",
+        "true_name": "Supreme Warrior",
+        "description": "Increases attack speed and deals bonus physical damage on next attacks.",
+        "damage_type": "physical",
+        "power": 65,
+        "cooldown": 2
+      },
+      {
+        "slot": "skill_2",
+        "true_name": "Chained Spear",
+        "description": "Throws a spear dealing physical damage and pulling himself to enemies hit.",
+        "damage_type": "physical",
+        "power": 90,
+        "cooldown": 4
+      },
+      {
+        "slot": "skill_3",
+        "true_name": "Fatal Blade",
+        "description": "Spins with his spear dealing repeated physical damage around him.",
+        "damage_type": "physical",
+        "power": 135,
+        "cooldown": 6
+      }
+    ],
+    "biography": null,
+    "artwork": null
   }
 ]

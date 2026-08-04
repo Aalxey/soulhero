@@ -2,7 +2,7 @@ import discord
 
 from bot.services.hero_service import HeroService
 from bot.services.resonance_service import ResonanceService
-from bot.services.battle_service import BattleService
+from bot.services.battle_record_service import BattleService
 
 
 class ProfileService:

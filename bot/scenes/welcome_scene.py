@@ -11,7 +11,8 @@ class WelcomeScene(Scene):
     @property
     def scene_name(self):
 
-        return "WELCOME"
+        return "SOUL_WORLD_ARRIVAL"
+
 
 
     def build_embed(self):
@@ -29,6 +30,7 @@ class WelcomeScene(Scene):
             color=discord.Color.dark_purple()
 
         )
+
 
 
     def build_view(self):

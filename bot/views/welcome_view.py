@@ -17,6 +17,7 @@ class WelcomeView(discord.ui.View):
         self.hero = hero
 
 
+
     async def interaction_check(
         self,
         interaction: discord.Interaction
@@ -34,7 +35,9 @@ class WelcomeView(discord.ui.View):
 
             return False
 
+
         return True
+
 
 
     @discord.ui.button(
@@ -47,27 +50,24 @@ class WelcomeView(discord.ui.View):
         button: discord.ui.Button
     ):
 
+
+        print(
+            f"⚔ Begin Journey: {interaction.user.id}"
+        )
+
+
+        # No state transition here — the player is
+        # already OATHBOUND. This button just closes
+        # out the prologue until WorldGateway exists
+        # to route into the Free World.
+
         await interaction.response.edit_message(
-
-            content=None,
-
-            embed=None,
 
             view=None
 
         )
 
-        await interaction.followup.send(
 
-            (
-                "⚔ **The doors of your Soul Chamber slowly open...**\n\n"
-
-                "Beyond them lies **Soul World**.\n\n"
-
-                "May your legend be remembered."
-
-            ),
-
-            ephemeral=True
-
+        print(
+            "✅ Prologue complete — awaiting WorldGateway"
         )

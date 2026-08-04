@@ -9,7 +9,9 @@ class CollapseScene(Scene):
     @property
     def scene_name(self):
 
-        return "COLLAPSE"
+        return "FINAL_TRIAL"
+
+
 
     def build_embed(self):
 
@@ -32,6 +34,8 @@ class CollapseScene(Scene):
             color=discord.Color.dark_red()
 
         )
+
+
 
     def build_view(self):
 

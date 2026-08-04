@@ -5,15 +5,12 @@ from bot.utils.constants import JourneyState
 from bot.services.player_service import PlayerService
 from bot.services.channel_service import ChannelService
 from bot.services.soul_chamber_service import SoulChamberService
-
-from bot.engine.scene_manager import SceneManager
+from bot.services.scene_recovery_service import SceneRecoveryService
 
 from bot.scenes.arrival_scene import ArrivalScene
 from bot.scenes.welcome_scene import WelcomeScene
 from bot.scenes.collapse_scene import CollapseScene
-
-from bot.views.arrival_view import ArrivalView
-from bot.story.arrival import get_arrival_embed
+from bot.scenes.oath_scene import OathScene
 
 
 class JourneyGateway:
@@ -38,117 +35,135 @@ class JourneyGateway:
         bot
     ):
 
-        state = player.journey_state
+        try:
 
+            state = player.journey_state
 
-
-        # ---------------------------------
-        # FIRST ARRIVAL
-        # ---------------------------------
-
-        if state == JourneyState.WANDERER:
-
-
-            await JourneyGateway._arrival(
-
-                interaction,
-
-                bot,
-
-                player
-
+            print(
+                "CURRENT JOURNEY STATE:",
+                player.journey_state,
+                type(player.journey_state)
             )
 
 
-            return
+
+            # ---------------------------------
+            # FIRST ARRIVAL
+            # ---------------------------------
+
+            if state == JourneyState.WANDERER:
+
+
+                await JourneyGateway._arrival(
+
+                    interaction,
+
+                    bot,
+
+                    player
+
+                )
+
+
+                return
 
 
 
-        # ---------------------------------
-        # AWAKENING
-        # ---------------------------------
+            # ---------------------------------
+            # AWAKENING
+            # ---------------------------------
 
-        if state == JourneyState.AWAKENING:
+            if state == JourneyState.AWAKENING:
 
+                channel = await JourneyGateway._get_ruins_channel(
 
-            channel = await JourneyGateway._get_ruins_channel(
+                    interaction,
 
-                interaction,
+                    bot
 
-                bot
+                )
 
-            )
+                await SceneRecoveryService.restore(
 
+                    player,
 
-            await interaction.response.send_message(
+                    channel,
 
-                (
-                    "🌑 Your awakening remains unfinished.\n\n"
-                    f"Your forgotten path awaits in {channel.mention}."
-                ),
+                    ArrivalScene
 
-                ephemeral=True
+                )
 
-            )
+                await interaction.followup.send(
 
+                    (
+                        "🌑 Your awakening continues...\n\n"
+                        f"Your path awaits in {channel.mention}."
+                    ),
 
-            return
+                    ephemeral=True
 
+                )
 
-
-        # ---------------------------------
-        # HERO CHOSEN
-        # ---------------------------------
-
-        if state == JourneyState.HERO_CHOSEN:
-
-
-            channel = await JourneyGateway._get_ruins_channel(
-
-                interaction,
-
-                bot
-
-            )
-
-
-            await interaction.response.send_message(
-
-                (
-                    "⚔ Your oath ceremony remains incomplete.\n\n"
-                    f"Your Hero awaits you in {channel.mention}."
-                ),
-
-                ephemeral=True
-
-            )
-
-
-            return
+                return
 
 
 
-        # ---------------------------------
-        # OATH COMPLETE
-        # SHOW WELCOME SCENE
-        # ---------------------------------
+            # ---------------------------------
+            # HERO CHOSEN
+            # ---------------------------------
 
-        if state == JourneyState.OATH_COMPLETE:
+            if state == JourneyState.HERO_CHOSEN:
 
-
-            hero = PlayerService.get_player_hero(
-
-                interaction.user.id
-
-            )
+                print("➡ HERO CHOSEN: Restoring Oath Scene")
 
 
-            if hero is None:
+                hero = PlayerService.get_player_hero(
+                    interaction.user.id
+                )
 
 
-                await interaction.response.send_message(
+                if hero is None:
 
-                    "The bond between soul and hero cannot be found.",
+                    await interaction.followup.send(
+
+                        "⚠ Your Hero bond cannot be found.",
+
+                        ephemeral=True
+
+                    )
+
+                    return
+
+
+
+                channel = await JourneyGateway._get_ruins_channel(
+
+                    interaction,
+
+                    bot
+
+                )
+
+
+                await SceneRecoveryService.restore(
+
+                    player,
+
+                    channel,
+
+                    OathScene,
+
+                    hero
+
+                )
+
+
+                await interaction.followup.send(
+
+                    (
+                        "⚔ Your oath ceremony has been restored.\n\n"
+                        f"Continue your destiny in {channel.mention}."
+                    ),
 
                     ephemeral=True
 
@@ -159,148 +174,199 @@ class JourneyGateway:
 
 
 
-            channel = await JourneyGateway._get_ruins_channel(
+            # ---------------------------------
+            # OATH COMPLETE
+            # SHOW COLLAPSE SCENE
+            # ---------------------------------
 
-                interaction,
+            if state == JourneyState.OATH_COMPLETE:
 
-                bot
+                hero = PlayerService.get_player_hero(
 
-            )
+                    interaction.user.id
 
+                )
 
-            scene = WelcomeScene(
+                if hero is None:
 
-                player,
+                    await interaction.followup.send(
 
-                hero
+                        "The bond between soul and hero cannot be found.",
 
-            )
+                        ephemeral=True
 
+                    )
 
-            await SceneManager.send(
+                    return
 
-                channel,
+                channel = await JourneyGateway._get_ruins_channel(
 
-                scene
+                    interaction,
 
-            )
+                    bot
 
+                )
 
-            await interaction.response.send_message(
+                await SceneRecoveryService.restore(
 
-                f"🌒 Your oath has been acknowledged. Continue your journey in {channel.mention}.",
+                    player,
 
-                ephemeral=True
+                    channel,
 
-            )
+                    CollapseScene,
 
+                    hero
 
-            return
+                )
 
+                await interaction.followup.send(
 
-
-
-        # ---------------------------------
-        # WELCOME COMPLETE
-        # SHOW COLLAPSE SCENE
-        # ---------------------------------
-
-        if state == JourneyState.WELCOME:
-
-
-            hero = PlayerService.get_player_hero(
-
-                interaction.user.id
-
-            )
-
-
-            if hero is None:
-
-
-                await interaction.response.send_message(
-
-                    "Your hero bond cannot be found.",
+                    f"⚔ The ancient seal fractures. Continue in {channel.mention}.",
 
                     ephemeral=True
 
                 )
 
+                return
+
+
+
+
+            if state == JourneyState.COLLAPSE:
+
+                hero = PlayerService.get_player_hero(
+
+                    interaction.user.id
+
+                )
+
+                if hero is None:
+
+                    await interaction.followup.send(
+
+                        "Your hero bond cannot be found.",
+
+                        ephemeral=True
+
+                    )
+
+                    return
+
+                channel = await JourneyGateway._get_ruins_channel(
+
+                    interaction,
+
+                    bot
+
+                )
+
+                await SceneRecoveryService.restore(
+
+                    player,
+
+                    channel,
+
+                    WelcomeScene,
+
+                    hero
+
+                )
+
+                await interaction.followup.send(
+
+                    f"🌒 Welcome to the Soul Chamber in {channel.mention}.",
+
+                    ephemeral=True
+
+                )
 
                 return
 
 
 
-            channel = await JourneyGateway._get_ruins_channel(
 
-                interaction,
+            # ---------------------------------
+            # WELCOME
+            # ---------------------------------
 
-                bot
+            if state == JourneyState.WELCOME:
 
+                chamber = await JourneyGateway._get_soul_chamber(
+
+                    interaction,
+
+                    bot
+
+                )
+
+                await interaction.followup.send(
+
+                    (
+                        "🌒 You have entered a new realm.\n\n"
+                        f"Your Soul Chamber awaits in {chamber.mention}."
+                    ),
+
+                    ephemeral=True
+
+                )
+
+                return
+
+
+
+
+            # ---------------------------------
+            # OATHBOUND
+            # ---------------------------------
+
+            if state == JourneyState.OATHBOUND:
+
+                print("2. Getting hero")
+
+                hero = PlayerService.get_player_hero(interaction.user.id)
+
+                print("3. Getting chamber")
+
+                chamber = await JourneyGateway._get_soul_chamber(
+                    interaction,
+                    bot
+                )
+
+                print("4. Ready for Soul World")
+
+                # TODO: Create SoulWorldScene for OATHBOUND players
+                # For now, just acknowledge they are in the chamber
+                # await SceneRecoveryService.restore(
+                #     player,
+                #     chamber,
+                #     SoulWorldScene,
+                #     hero
+                # )
+
+                print("5. Chamber ready")
+
+                await interaction.followup.send(
+                    f"🌑 Welcome back to your Soul Chamber in {chamber.mention}.",
+                    ephemeral=True
+                )
+
+                print("6. Followup sent")
+
+                return
+
+
+            print(
+                "⚠ UNKNOWN JOURNEY STATE:",
+                state
             )
 
-
-            scene = CollapseScene(
-
-                player,
-
-                hero
-
-            )
-
-
-            await SceneManager.send(
-
-                channel,
-
-                scene
-
-            )
-
-
-            await interaction.response.send_message(
-
-                f"🌋 The final trial awaits in {channel.mention}.",
-
-                ephemeral=True
-
-            )
-
-
-            return
-
-
-
-
-        # ---------------------------------
-        # OATHBOUND
-        # ---------------------------------
-
-        if state == JourneyState.OATHBOUND:
-
-            chamber = await JourneyGateway._get_soul_chamber(
-
-                interaction,
-
-                bot
-
-            )
-
-            await interaction.response.send_message(
-
-                (
-
-                    "🌑 Welcome back, Oathbearer.\n\n"
-
-                    f"Your Soul Chamber awaits in {chamber.mention}."
-
-                ),
-
-                ephemeral=True
-
-            )
-
-            return
+        except Exception:
+            import traceback
+            print("\n" + "="*60)
+            print("❌ ERROR IN JOURNEY GATEWAY")
+            print("="*60)
+            traceback.print_exc()
+            print("="*60 + "\n")
 
 
 
@@ -316,7 +382,6 @@ class JourneyGateway:
 
     ):
 
-
         channel = await JourneyGateway._get_ruins_channel(
 
             interaction,
@@ -325,22 +390,15 @@ class JourneyGateway:
 
         )
 
+        await SceneRecoveryService.restore(
 
-        scene = ArrivalScene(
-
-            player
-
-        )
-
-
-        await SceneManager.send(
+            player,
 
             channel,
 
-            scene
+            ArrivalScene
 
         )
-
 
         PlayerService.update_state(
 
@@ -350,8 +408,9 @@ class JourneyGateway:
 
         )
 
+        player.journey_state = JourneyState.AWAKENING
 
-        await interaction.response.send_message(
+        await interaction.followup.send(
 
             f"🜂 Your path awaits in {channel.mention}.",
 

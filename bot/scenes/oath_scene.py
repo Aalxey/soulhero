@@ -1,25 +1,16 @@
 import discord
 
 from bot.engine.scene import Scene
-from bot.views.oath_view import OathView
+from bot.views.oath_ceremony_view import OathCeremonyView
 
 
 class OathScene(Scene):
-    """
-    Final confirmation before the player
-    forms an eternal bond with a Hero.
-
-    This scene NEVER:
-    - Saves the Hero
-    - Updates SQL
-    - Changes player progression
-    """
 
     @property
-    def scene_name(self) -> str:
+    def scene_name(self):
         return "OATH"
 
-    def build_embed(self) -> discord.Embed:
+    def build_embed(self):
 
         embed = discord.Embed(
 
@@ -45,28 +36,20 @@ class OathScene(Scene):
         )
 
         if self.hero.get("image"):
-
-            embed.set_thumbnail(
-                url=self.hero["image"]
-            )
+            embed.set_thumbnail(url=self.hero["image"])
 
         embed.set_footer(
-
             text="The oath cannot be undone."
-
         )
 
         return embed
 
-    def build_view(
-        self,
-        player_id: int
-    ):
+    def build_view(self):
 
-        return OathView(
+        return OathCeremonyView(
 
             hero=self.hero,
 
-            player_id=player_id
+            player_id=int(self.player.discord_id)
 
         )

@@ -17,19 +17,53 @@ class SceneManager:
     It only renders Scene objects.
     """
 
+
     @staticmethod
     async def send(
         channel: discord.TextChannel,
         scene
     ):
 
+        print(
+            "SCENE SEND START:",
+            scene.scene_name,
+            "CHANNEL:",
+            channel.name
+        )
+
+
+        embed = scene.build_embed()
+
+        view = scene.build_view()
+
+
+        print(
+            "EMBED CREATED:",
+            embed.title
+        )
+
+        print(
+            "VIEW CREATED:",
+            type(view).__name__
+            if view
+            else "None"
+        )
+
+
         message = await channel.send(
 
-            embed=scene.build_embed(),
+            embed=embed,
 
-            view=scene.build_view()
+            view=view
 
         )
+
+
+        print(
+            "SCENE MESSAGE SENT:",
+            message.id
+        )
+
 
         MessageManager.save(
 
@@ -43,13 +77,27 @@ class SceneManager:
 
         )
 
+
+        print(
+            "MESSAGE SAVED"
+        )
+
+
         return message
+
+
 
     @staticmethod
     async def edit(
         interaction: discord.Interaction,
         scene
     ):
+
+        print(
+            "SCENE EDIT:",
+            scene.scene_name
+        )
+
 
         await interaction.response.edit_message(
 
@@ -58,6 +106,7 @@ class SceneManager:
             view=scene.build_view()
 
         )
+
 
         MessageManager.save(
 
@@ -70,6 +119,8 @@ class SceneManager:
             scene_name=scene.scene_name
 
         )
+
+
 
     @staticmethod
     async def resend(

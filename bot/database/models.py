@@ -12,12 +12,10 @@ class Player(Base):
 
     __tablename__ = "players"
 
-
     id = Column(
         Integer,
         primary_key=True
     )
-
 
     discord_id = Column(
         String,
@@ -25,18 +23,15 @@ class Player(Base):
         nullable=False
     )
 
-
     username = Column(
         String,
         nullable=False
     )
 
-
     hero_id = Column(
         Integer,
         nullable=True
     )
-
 
     journey_state = Column(
         String,
@@ -44,22 +39,57 @@ class Player(Base):
         nullable=False
     )
 
+    # -----------------------------------------
+    # Progression
+    # -----------------------------------------
 
-    # Player progression
     resonance = Column(
         Integer,
         default=1,
         nullable=False
     )
 
-
-    # PvP statistics
-    wins = Column(
+    # Manual stat points earned every 5 Resonance
+    allocated_hp = Column(
         Integer,
         default=0,
         nullable=False
     )
 
+    allocated_attack = Column(
+        Integer,
+        default=0,
+        nullable=False
+    )
+
+    allocated_defense = Column(
+        Integer,
+        default=0,
+        nullable=False
+    )
+
+    allocated_speed = Column(
+        Integer,
+        default=0,
+        nullable=False
+    )
+
+    # Permanent Fortune stat
+    luck = Column(
+        Integer,
+        default=1,
+        nullable=False
+    )
+
+    # -----------------------------------------
+    # PvP
+    # -----------------------------------------
+
+    wins = Column(
+        Integer,
+        default=0,
+        nullable=False
+    )
 
     losses = Column(
         Integer,
@@ -67,12 +97,14 @@ class Player(Base):
         nullable=False
     )
 
+    # -----------------------------------------
+    # Journey
+    # -----------------------------------------
 
     oathbound_date = Column(
         DateTime,
         nullable=True
     )
-
 
     created_at = Column(
         DateTime,
