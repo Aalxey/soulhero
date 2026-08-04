@@ -1,26 +1,19 @@
 import discord
 
-from bot.views.battle_view import BattleView
+from bot.views.attack_view import AttackView
 
 
 class BattleScene:
     """
-    Displays the current battle.
+    Responsible for rendering battle UI.
 
-    BattleScene is responsible ONLY for presentation.
-
-    It never:
-
-        - Calculates damage
-        - Changes HP
-        - Decides turns
-        - Rolls luck
-
-    Those belong to the battle engine.
-
-    BattleScene simply converts the current battle
-    into a Discord Embed + View.
+    Does NOT:
+        - calculate damage
+        - modify HP
+        - control turns
+        - handle Discord interactions
     """
+
 
     def __init__(
         self,
@@ -31,151 +24,480 @@ class BattleScene:
         self.battle = battle
         self.result = result
 
-    # -------------------------------------------------
+        self.scene_name = "BATTLE"
 
-    @property
-    def scene_name(self):
 
-        return "BATTLE"
+        print("\n")
+        print("=" * 50)
+        print("⚔ BATTLE SCENE CREATED")
+        print("=" * 50)
 
-    # -------------------------------------------------
+        print(
+            "Battle ID:",
+            id(self.battle)
+        )
+
+        print(
+            "Battle finished:",
+            getattr(
+                self.battle,
+                "finished",
+                False
+            )
+        )
+
+
+        if self.result:
+
+            print(
+                "Result:",
+                self.result.__dict__
+            )
+
+        else:
+
+            print(
+                "Result: None"
+            )
+
+
+        print("=" * 50)
+        print("\n")
+
+
+
+    # =================================================
+    # EMBED
+    # =================================================
 
     def build_embed(self):
 
-        embed = discord.Embed(
-            title="⚔ Battle",
-            color=discord.Color.red()
+
+        print(
+            "⚔ BUILDING BATTLE EMBED"
         )
 
+
+        embed = discord.Embed(
+
+            title="⚔ Battle",
+
+            color=discord.Color.red()
+
+        )
+
+
+
         player_one = self.battle.player_one
+
         player_two = self.battle.player_two
 
-        state_one = self.battle.player_one_state
-        state_two = self.battle.player_two_state
 
-        current_player = self.battle.current_player()
 
-        description = [
+        state_one = self.battle.state_of(
 
-            "━━━━━━━━━━━━━━━━━━━━━━",
-            "",
-            f"⚔ **{player_one.username}**",
-            f"❤️ {state_one.current_hp}/{state_one.max_hp}",
-            "",
-            "🆚",
-            "",
-            f"⚔ **{player_two.username}**",
-            f"❤️ {state_two.current_hp}/{state_two.max_hp}",
-            "",
-            "━━━━━━━━━━━━━━━━━━━━━━",
-            ""
-        ]
+            player_one.discord_id
 
-        # -----------------------------------------
-        # Last Action
-        # -----------------------------------------
+        )
 
-        if self.result is not None:
 
-            description.extend(
+        state_two = self.battle.state_of(
 
-                self._build_action_log()
+            player_two.discord_id
+
+        )
+
+
+
+        embed.add_field(
+
+            name=f"⚔ {player_one.username}",
+
+            value=(
+
+                f"❤️ HP: {state_one.hp}\n"
+
+                f"⚔ ATK: {state_one.attack}\n"
+
+                f"🛡 DEF: {state_one.defense}"
+
+            ),
+
+            inline=True
+
+        )
+
+
+
+        embed.add_field(
+
+            name=f"⚔ {player_two.username}",
+
+            value=(
+
+                f"❤️ HP: {state_two.hp}\n"
+
+                f"⚔ ATK: {state_two.attack}\n"
+
+                f"🛡 DEF: {state_two.defense}"
+
+            ),
+
+            inline=True
+
+        )
+
+
+
+        # =================================================
+        # RESULT
+        # =================================================
+
+
+        if self.result:
+
+
+            print(
+                "Processing battle result"
+            )
+
+
+
+            if self.result.finished:
+
+
+                print(
+                    "🏆 Adding winner"
+                )
+
+
+                winner = self.result.winner
+
+
+
+                winner_name = (
+
+                    winner.username
+
+                    if winner
+
+                    else
+
+                    "Unknown"
+
+                )
+
+
+
+                embed.add_field(
+
+                    name="🏆 Victory",
+
+                    value=(
+
+                        f"{winner_name}"
+
+                        "\n\n"
+
+                        "The battle has ended."
+
+                    ),
+
+                    inline=False
+
+                )
+
+
+            elif self.result.damage:
+
+
+                embed.add_field(
+
+                    name="🩸 Damage",
+
+                    value=(
+
+                        f"{self.result.damage}"
+
+                    ),
+
+                    inline=False
+
+                )
+
+
+
+
+        # =================================================
+        # CURRENT TURN
+        # =================================================
+
+
+        if (
+
+            not self.result
+
+            or
+
+            not self.result.finished
+
+        ):
+
+
+            current = self.battle.current_player()
+
+
+
+            if current:
+
+
+                embed.add_field(
+
+                    name="🎯 Current Turn",
+
+                    value=current.username,
+
+                    inline=False
+
+                )
+
+
+                print(
+
+                    "Current turn:",
+
+                    current.username
+
+                )
+
+
+
+        else:
+
+
+            print(
+
+                "Battle finished."
+
+                " No turn display."
 
             )
 
-        # -----------------------------------------
-        # Turn
-        # -----------------------------------------
 
-        description.extend([
 
-            "",
-            f"🎯 **Turn:** {current_player.username}"
+        print(
+            "✅ EMBED READY"
+        )
 
-        ])
-
-        embed.description = "\n".join(description)
 
         return embed
 
-    # -------------------------------------------------
 
-    def _build_action_log(self):
 
-        result = self.result
 
-        lines = []
 
-        if result.action == "attack":
-
-            skill_name = (
-                result.skill["true_name"]
-                if result.skill
-                else "Attack"
-            )
-
-            lines.append(
-                f"⚔ **{skill_name}**"
-            )
-
-            if result.failed_memory:
-
-                lines.append(
-                    "❓ This memory is still sealed."
-                )
-
-                return lines
-
-            if result.missed:
-
-                lines.append(
-                    "💨 The attack missed!"
-                )
-
-                return lines
-
-            damage = result.damage
-
-            if result.critical:
-
-                lines.append(
-                    "💥 **Critical Hit!**"
-                )
-
-            lines.append(
-                f"🩸 Damage: **{damage}**"
-            )
-
-            if result.guarded:
-
-                lines.append(
-                    "🛡 Damage Reduced"
-                )
-
-            if result.defeated:
-
-                lines.append(
-                    "☠ Enemy Defeated!"
-                )
-
-        elif result.action == "guard":
-
-            lines.append(
-                "🛡 Guard Stance Activated"
-            )
-
-        elif result.action == "surrender":
-
-            lines.append(
-                "🏳 Player Surrendered"
-            )
-
-        return lines
-
-    # -------------------------------------------------
+    # =================================================
+    # VIEW
+    # =================================================
 
     def build_view(self):
 
-        return BattleView(
-            self.battle
+
+        print("\n")
+        print("=" * 50)
+        print("⚔ BUILDING BATTLE VIEW")
+        print("=" * 50)
+
+
+
+        # -----------------------------------------
+        # Result says finished
+        # -----------------------------------------
+
+
+        if self.result:
+
+
+            print(
+
+                "Checking result finished:",
+
+                self.result.finished
+
+            )
+
+
+
+            if self.result.finished:
+
+
+                print(
+
+                    "🏆 RESULT FINISHED"
+
+                )
+
+
+                print(
+
+                    "Returning None view"
+
+                )
+
+
+                print("=" * 50)
+                print("\n")
+
+
+                return None
+
+
+
+
+
+        # -----------------------------------------
+        # Battle object finished
+        # -----------------------------------------
+
+
+        if getattr(
+
+            self.battle,
+
+            "finished",
+
+            False
+
+        ):
+
+
+            print(
+
+                "🏆 BATTLE OBJECT FINISHED"
+
+            )
+
+
+            print(
+
+                "Returning None view"
+
+            )
+
+
+            print("=" * 50)
+            print("\n")
+
+
+            return None
+
+
+
+
+        # -----------------------------------------
+        # Check winner directly
+        # -----------------------------------------
+
+
+        if hasattr(
+
+            self.battle,
+
+            "winner"
+
+        ) and self.battle.winner:
+
+
+            print(
+
+                "🏆 Winner exists"
+
+            )
+
+
+            print(
+
+                "Returning None view"
+
+            )
+
+
+            return None
+
+
+
+
+
+        # -----------------------------------------
+        # Create attack menu
+        # -----------------------------------------
+
+
+        player = self.battle.current_player()
+
+
+
+        if player is None:
+
+
+            print(
+
+                "❌ No current player"
+
+            )
+
+
+            return None
+
+
+
+
+        print(
+
+            "Creating AttackView"
+
         )
+
+
+        print(
+
+            "Player:",
+
+            player.username
+
+        )
+
+
+        print(
+
+            "Player ID:",
+
+            player.discord_id
+
+        )
+
+
+
+        view = AttackView(
+
+            self.battle,
+
+            str(player.discord_id)
+
+        )
+
+
+
+        print(
+
+            "✅ AttackView created"
+
+        )
+
+
+        print("=" * 50)
+        print("\n")
+
+
+
+        return view

@@ -1,31 +1,14 @@
+import traceback
+
 import discord
+import asyncio
 
 from bot.services.hero_memory_service import HeroMemoryService
-
 from bot.battle.engine.battle_engine import BattleEngine
-
 from bot.battle.services.battle_refresh_service import BattleRefreshService
 
 
 class AttackView(discord.ui.View):
-    """
-    Ephemeral attack menu.
-
-    This view belongs to the player who
-    pressed the Attack button.
-
-    Responsibilities:
-
-        - Display hero skills
-        - Execute selected skill
-        - Refresh battle after action
-
-    Does NOT:
-
-        - Calculate damage
-        - Modify HP
-        - Decide winner
-    """
 
     def __init__(
         self,
@@ -34,32 +17,82 @@ class AttackView(discord.ui.View):
     ):
 
         super().__init__(
-            timeout=60
+            timeout=None
         )
+
 
         self.battle = battle
 
         self.player_id = str(player_id)
 
-        self.build_buttons()
+
+        print("\n")
+        print("=" * 60)
+        print("⚔ ATTACK VIEW CREATED")
+        print("Player ID:", self.player_id)
+        print("Battle ID:", id(self.battle))
+        print("Battle Finished:", getattr(self.battle, "finished", False))
+        print("Current Turn:", self.battle.turn)
+        print("=" * 60)
 
 
-    # -------------------------------------------------
-    # Build Skill Buttons
-    # -------------------------------------------------
 
-    def build_buttons(self):
+        # -----------------------------------
+        # Do not create buttons after victory
+        # -----------------------------------
 
-        player = self.battle.current_player()
+        if getattr(self.battle, "finished", False):
 
-        if player is None:
+            print(
+                "🏆 Battle already finished."
+            )
+
             return
 
 
-        hero_id = player.hero_id
+
+        self.build_buttons()
 
 
-        slots = [
+
+    # =================================================
+    # BUILD BUTTONS
+    # =================================================
+
+    def build_buttons(self):
+
+        print(
+            "⚔ BUILDING ATTACK BUTTONS"
+        )
+
+
+        player = self.battle.current_player()
+
+
+        if player is None:
+
+            print(
+                "❌ CURRENT PLAYER NONE"
+            )
+
+            return
+
+
+
+        print(
+            "Current player:",
+            player.username
+        )
+
+
+        print(
+            "Hero ID:",
+            player.hero_id
+        )
+
+
+
+        skills = [
 
             "basic_attack",
 
@@ -72,11 +105,19 @@ class AttackView(discord.ui.View):
         ]
 
 
-        for slot in slots:
+
+        for slot in skills:
+
+
+            print(
+                "Loading skill:",
+                slot
+            )
+
 
             skill = HeroMemoryService.get_skill(
 
-                hero_id,
+                player.hero_id,
 
                 slot
 
@@ -84,7 +125,21 @@ class AttackView(discord.ui.View):
 
 
             if skill is None:
+
+                print(
+                    "❌ Missing skill:",
+                    slot
+                )
+
                 continue
+
+
+
+            print(
+                "✅ Skill:",
+                skill["true_name"]
+            )
+
 
 
             button = discord.ui.Button(
@@ -93,7 +148,7 @@ class AttackView(discord.ui.View):
 
                 style=self.get_style(slot),
 
-                custom_id=slot
+                custom_id=f"attack_{slot}"
 
             )
 
@@ -104,11 +159,15 @@ class AttackView(discord.ui.View):
             self.add_item(button)
 
 
+
+
         back = discord.ui.Button(
 
             label="⬅ Back",
 
             style=discord.ButtonStyle.danger,
+
+            custom_id="attack_back",
 
             row=1
 
@@ -121,12 +180,19 @@ class AttackView(discord.ui.View):
         self.add_item(back)
 
 
-    # -------------------------------------------------
+
+        print(
+            "✅ ATTACK BUTTONS READY"
+        )
+
+
+
+    # =================================================
+    # STYLE
+    # =================================================
 
     @staticmethod
-    def get_style(
-        slot
-    ):
+    def get_style(slot):
 
         if slot == "basic_attack":
 
@@ -136,16 +202,18 @@ class AttackView(discord.ui.View):
         return discord.ButtonStyle.secondary
 
 
-    # -------------------------------------------------
-    # Validation
-    # -------------------------------------------------
+
+    # =================================================
+    # OWNER CHECK
+    # =================================================
 
     def is_owner(
         self,
-        interaction: discord.Interaction
+        interaction
     ):
 
-        return (
+
+        result = (
 
             str(interaction.user.id)
 
@@ -156,9 +224,23 @@ class AttackView(discord.ui.View):
         )
 
 
+        print(
+            "OWNER CHECK:",
+            result
+        )
+
+
+        return result
+
+
+
+    # =================================================
+    # TURN CHECK
+    # =================================================
+
     def is_turn(self):
 
-        return (
+        result = (
 
             str(self.battle.turn)
 
@@ -169,9 +251,29 @@ class AttackView(discord.ui.View):
         )
 
 
-    # -------------------------------------------------
-    # Skill Button
-    # -------------------------------------------------
+        print(
+            "TURN CHECK:",
+            result
+        )
+
+        print(
+            "Expected:",
+            self.player_id
+        )
+
+        print(
+            "Current:",
+            self.battle.turn
+        )
+
+
+        return result
+
+
+
+    # =================================================
+    # SKILL CLICK
+    # =================================================
 
     async def skill_pressed(
         self,
@@ -179,113 +281,276 @@ class AttackView(discord.ui.View):
     ):
 
 
-        # -----------------------------
-        # Owner Check
-        # -----------------------------
+        print("\n")
+        print("=" * 60)
+        print("⚔ SKILL CLICK")
+        print("=" * 60)
 
-        if not self.is_owner(interaction):
 
-            await interaction.response.send_message(
+        try:
 
-                "This is not your attack menu.",
 
-                ephemeral=True
+            # -----------------------------------
+            # Battle already finished protection
+            # -----------------------------------
+
+            if getattr(
+                self.battle,
+                "finished",
+                False
+            ):
+
+
+                print(
+                    "🏆 Battle already finished"
+                )
+
+
+                await interaction.response.send_message(
+
+                    "⚔ This battle has already ended.",
+
+                    ephemeral=True
+
+                )
+
+
+                return
+
+
+
+            print(
+                "User:",
+                interaction.user
+            )
+
+
+            print(
+                "Data:",
+                interaction.data
+            )
+
+
+
+            if not self.is_owner(interaction):
+
+
+                print(
+                    "❌ Wrong player"
+                )
+
+
+                await interaction.response.send_message(
+
+                    "This attack menu belongs to another soul.",
+
+                    ephemeral=True
+
+                )
+
+
+                return
+
+
+
+            print(
+                "✅ OWNER VERIFIED"
+            )
+
+
+
+            if not self.is_turn():
+
+
+                print(
+                    "❌ Wrong turn"
+                )
+
+
+                await interaction.response.send_message(
+
+                    "It is not your turn.",
+
+                    ephemeral=True
+
+                )
+
+
+                return
+
+
+
+            print(
+                "✅ TURN VERIFIED"
+            )
+
+
+
+            skill_id = interaction.data["custom_id"]
+
+
+            print(
+                "Button:",
+                skill_id
+            )
+
+
+
+            skill_slot = skill_id.replace(
+
+                "attack_",
+
+                ""
 
             )
 
-            return
+
+            print(
+                "Skill:",
+                skill_slot
+            )
 
 
-        # -----------------------------
-        # Turn Check
-        # -----------------------------
 
-        if not self.is_turn():
+            await interaction.response.defer()
 
-            await interaction.response.send_message(
 
-                "It is no longer your turn.",
 
-                ephemeral=True
+            print(
+                "✅ Deferred"
+            )
+
+
+
+            result = BattleEngine.attack(
+
+                self.battle,
+
+                self.player_id,
+
+                skill_slot
 
             )
 
-            return
 
 
-        skill_slot = interaction.data["custom_id"]
+            print(
+                "RESULT:"
+            )
 
 
-        # -----------------------------
-        # Acknowledge Interaction
-        # -----------------------------
-
-        await interaction.response.defer()
-
-
-        # -----------------------------
-        # Execute Attack
-        # -----------------------------
-
-        result = BattleEngine.attack(
-
-            self.battle,
-
-            self.player_id,
-
-            skill_slot
-
-        )
-
-
-        # -----------------------------
-        # Update Battle Message
-        # -----------------------------
-
-        await BattleRefreshService.refresh(
-
-            interaction,
-
-            self.battle,
-
-            result
-
-        )
-
-
-        # -----------------------------
-        # Close Menu
-        # -----------------------------
-
-        self.disable_buttons()
-
-        self.stop()
+            print(
+                result.__dict__
+            )
 
 
 
-    # -------------------------------------------------
-    # Disable UI
-    # -------------------------------------------------
+            # -----------------------------------
+            # Refresh battle
+            # -----------------------------------
+
+            await BattleRefreshService.refresh(
+
+                interaction,
+
+                self.battle,
+
+                result
+
+            )
+
+            if result.finished:
+
+                await asyncio.sleep(15)
+
+                from bot.services.battle_cleanup_service import BattleCleanupService
+
+                await BattleCleanupService.delete_channel(
+                    self.battle
+                )
+
+
+            print(
+                "✅ REFRESH COMPLETE"
+            )
+
+
+
+            # -----------------------------------
+            # Close old menu
+            # -----------------------------------
+
+            self.disable_buttons()
+
+            self.stop()
+
+
+
+            print(
+                "✅ ATTACK VIEW CLOSED"
+            )
+
+
+
+        except Exception:
+
+
+            print("\n")
+            print("=" * 60)
+            print("❌ ATTACK VIEW ERROR")
+            print("=" * 60)
+
+
+            traceback.print_exc()
+
+
+            print("=" * 60)
+
+
+
+
+    # =================================================
+    # DISABLE
+    # =================================================
 
     def disable_buttons(self):
 
-        for item in self.children:
 
-            item.disabled = True
+        print(
+            "DISABLING BUTTONS"
+        )
+
+
+        for child in self.children:
+
+            child.disabled = True
 
 
 
-    # -------------------------------------------------
-    # Back Button
-    # -------------------------------------------------
+
+    # =================================================
+    # BACK
+    # =================================================
 
     async def back_pressed(
         self,
-        interaction: discord.Interaction
+        interaction
     ):
 
+
+        print(
+            "⬅ BACK CLICKED"
+        )
+
+
         await interaction.response.defer()
+
 
         self.disable_buttons()
 
         self.stop()
+
+
+        print(
+            "BACK COMPLETE"
+        )

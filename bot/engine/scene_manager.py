@@ -13,10 +13,10 @@ class SceneManager:
     - Hero
     - SQL
     - JourneyState
+    - Battle Logic
 
     It only renders Scene objects.
     """
-
 
     @staticmethod
     async def send(
@@ -31,11 +31,8 @@ class SceneManager:
             channel.name
         )
 
-
         embed = scene.build_embed()
-
         view = scene.build_view()
-
 
         print(
             "EMBED CREATED:",
@@ -49,7 +46,6 @@ class SceneManager:
             else "None"
         )
 
-
         message = await channel.send(
 
             embed=embed,
@@ -58,34 +54,72 @@ class SceneManager:
 
         )
 
-
         print(
             "SCENE MESSAGE SENT:",
             message.id
         )
 
+        # -----------------------------------
+        # Allow views to know their message
+        # (used by timeout handlers)
+        # -----------------------------------
 
-        MessageManager.save(
+        if view is not None:
+            view.message = message
 
-            discord_id=scene.player.discord_id,
+        # -----------------------------------
+        # Save Journey Scenes
+        # -----------------------------------
 
-            channel_id=channel.id,
+        if hasattr(scene, "player"):
 
-            message_id=message.id,
+            MessageManager.save(
 
-            scene_name=scene.scene_name
+                discord_id=scene.player.discord_id,
 
-        )
+                channel_id=channel.id,
 
+                message_id=message.id,
+
+                scene_name=scene.scene_name
+
+            )
+
+        # -----------------------------------
+        # Save Battle Scene
+        # -----------------------------------
+
+        elif hasattr(scene, "battle"):
+
+            MessageManager.save(
+
+                discord_id=scene.battle.player_one.discord_id,
+
+                channel_id=channel.id,
+
+                message_id=message.id,
+
+                scene_name=scene.scene_name
+
+            )
+
+            MessageManager.save(
+
+                discord_id=scene.battle.player_two.discord_id,
+
+                channel_id=channel.id,
+
+                message_id=message.id,
+
+                scene_name=scene.scene_name
+
+            )
 
         print(
             "MESSAGE SAVED"
         )
 
-
         return message
-
-
 
     @staticmethod
     async def edit(
@@ -98,7 +132,6 @@ class SceneManager:
             scene.scene_name
         )
 
-
         await interaction.response.edit_message(
 
             embed=scene.build_embed(),
@@ -107,20 +140,53 @@ class SceneManager:
 
         )
 
+        # -----------------------------------
+        # Journey Scene
+        # -----------------------------------
 
-        MessageManager.save(
+        if hasattr(scene, "player"):
 
-            discord_id=scene.player.discord_id,
+            MessageManager.save(
 
-            channel_id=interaction.channel.id,
+                discord_id=scene.player.discord_id,
 
-            message_id=interaction.message.id,
+                channel_id=interaction.channel.id,
 
-            scene_name=scene.scene_name
+                message_id=interaction.message.id,
 
-        )
+                scene_name=scene.scene_name
 
+            )
 
+        # -----------------------------------
+        # Battle Scene
+        # -----------------------------------
+
+        elif hasattr(scene, "battle"):
+
+            MessageManager.save(
+
+                discord_id=scene.battle.player_one.discord_id,
+
+                channel_id=interaction.channel.id,
+
+                message_id=interaction.message.id,
+
+                scene_name=scene.scene_name
+
+            )
+
+            MessageManager.save(
+
+                discord_id=scene.battle.player_two.discord_id,
+
+                channel_id=interaction.channel.id,
+
+                message_id=interaction.message.id,
+
+                scene_name=scene.scene_name
+
+            )
 
     @staticmethod
     async def resend(

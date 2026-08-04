@@ -1,4 +1,5 @@
 import random
+import traceback
 
 from bot.battle.damage_result import DamageResult
 
@@ -7,111 +8,288 @@ class DamageService:
     """
     Calculates battle damage.
 
-    This service NEVER modifies HP.
+    This service ONLY calculates damage.
 
-    It only calculates and returns
-    a DamageResult.
+    It does NOT:
+        - modify HP
+        - decide winner
+        - handle Discord
     """
+
 
     @staticmethod
     def calculate(
-
         attacker,
-
         defender,
-
         skill,
-
         critical=False
-
     ):
 
-        # ----------------------------------
-        # Stats
-        # ----------------------------------
+        print("\n")
+        print("=" * 60)
+        print("⚔ DAMAGE CALCULATION START")
+        print("=" * 60)
 
-        attack = attacker.attack
 
-        defense = max(
+        try:
 
-            1,
 
-            defender.defense
+            # ----------------------------------
+            # Debug Objects
+            # ----------------------------------
 
-        )
+            print(
+                "ATTACKER:",
+                attacker.player.username
+                if hasattr(attacker.player, "username")
+                else attacker.player
+            )
 
-        power = skill["power"]
 
-        # ----------------------------------
-        # Base Damage
-        # ----------------------------------
+            print(
+                "DEFENDER:",
+                defender.player.username
+                if hasattr(defender.player, "username")
+                else defender.player
+            )
 
-        base_damage = (
 
-            attack * power
+            print(
+                "SKILL:",
+                skill
+            )
 
-        ) / defense
 
-        # ----------------------------------
-        # Random Battle Variation
-        # ----------------------------------
 
-        variation = random.uniform(
+            # ----------------------------------
+            # Read Stats
+            # ----------------------------------
 
-            0.90,
+            attack = attacker.attack
 
-            1.10
+            defense = max(
+                1,
+                defender.defense
+            )
 
-        )
 
-        damage = int(
+            power = skill.get(
+                "power",
+                0
+            )
 
-            base_damage * variation
 
-        )
 
-        # ----------------------------------
-        # Critical Hit
-        # ----------------------------------
+            print(
+                "ATTACK STAT:",
+                attack
+            )
 
-        if critical:
 
-            damage = int(
+            print(
+                "DEFENSE STAT:",
+                defense
+            )
 
-                damage * 1.5
+
+            print(
+                "SKILL POWER:",
+                power
+            )
+
+
+
+            # ----------------------------------
+            # Invalid Skill Protection
+            # ----------------------------------
+
+            if power is None:
+
+
+                print(
+                    "❌ Skill has no power"
+                )
+
+
+                return DamageResult(
+
+                    damage=0,
+
+                    critical=False,
+
+                    variation=1
+
+                )
+
+
+
+            # ----------------------------------
+            # Base Damage
+            # ----------------------------------
+
+            base_damage = (
+
+                attack * power
+
+            ) / defense
+
+
+
+            print(
+                "BASE DAMAGE:",
+                base_damage
+            )
+
+
+
+            # ----------------------------------
+            # Random Variation
+            # ----------------------------------
+
+            variation = random.uniform(
+
+                0.90,
+
+                1.10
 
             )
 
-        # ----------------------------------
-        # Guard
-        # ----------------------------------
 
-        if defender.guarding:
+            print(
+                "DAMAGE VARIATION:",
+                variation
+            )
+
 
             damage = int(
 
-                damage * 0.5
+                base_damage * variation
 
             )
 
-        # ----------------------------------
-        # Minimum Damage
-        # ----------------------------------
 
-        damage = max(
 
-            1,
+            # ----------------------------------
+            # Critical Damage
+            # ----------------------------------
 
-            damage
+            if critical:
 
-        )
 
-        return DamageResult(
+                print(
+                    "💥 CRITICAL HIT"
+                )
 
-            damage=damage,
 
-            critical=critical,
+                damage = int(
 
-            variation=variation
+                    damage * 1.5
 
-        )
+                )
+
+
+            else:
+
+
+                print(
+                    "Critical: FALSE"
+                )
+
+
+
+            # ----------------------------------
+            # Guard Reduction
+            # ----------------------------------
+
+            if defender.guarding:
+
+
+                print(
+                    "🛡 DEFENDER GUARDING"
+                )
+
+
+                damage = int(
+
+                    damage * 0.5
+
+                )
+
+
+            else:
+
+
+                print(
+                    "Guard: FALSE"
+                )
+
+
+
+            # ----------------------------------
+            # Minimum Damage
+            # ----------------------------------
+
+            damage = max(
+
+                1,
+
+                damage
+
+            )
+
+
+
+            print(
+                "FINAL DAMAGE:",
+                damage
+            )
+
+
+
+            # ----------------------------------
+            # Create Result
+            # ----------------------------------
+
+            result = DamageResult(
+
+                damage=damage,
+
+                critical=critical,
+
+                variation=variation
+
+            )
+
+
+            print(
+                "DamageResult created successfully"
+            )
+
+
+            print("=" * 60)
+            print("⚔ DAMAGE CALCULATION END")
+            print("=" * 60)
+            print("\n")
+
+
+            return result
+
+
+
+        except Exception:
+
+
+            print("\n")
+            print("=" * 60)
+            print("❌ DAMAGE SERVICE ERROR")
+            print("=" * 60)
+
+
+            traceback.print_exc()
+
+
+            print("=" * 60)
+            print("\n")
+
+
+            raise

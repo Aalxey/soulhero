@@ -1,4 +1,4 @@
-from bot.battle.models.battle_result import BattleResult
+from bot.battle.battle_result import BattleResult
 
 from bot.battle.services.luck_service import LuckService
 
@@ -9,16 +9,16 @@ from bot.services.damage_service import DamageService
 
 class AttackAction:
     """
-    Handles every offensive action.
+    Handles offensive battle actions.
 
-    This class does NOT:
-        - handle Discord
-        - edit messages
-        - create embeds
+    This class ONLY handles combat logic.
 
-    It only performs combat logic.
+    It does NOT:
+        - Discord
+        - embeds
+        - messages
+        - database
     """
-
 
     @staticmethod
     def execute(
@@ -27,39 +27,55 @@ class AttackAction:
         skill_slot: str
     ):
 
+        print("\n========== ATTACK ACTION ==========")
+
         result = BattleResult()
 
 
         # ---------------------------------
-        # Check Turn
+        # Turn Check
         # ---------------------------------
 
-        if battle.turn != str(attacker_id):
+        if str(battle.turn) != str(attacker_id):
+
+            print("❌ Not player's turn")
 
             result.action = "attack"
-
-            result.finished = False
 
             return result
 
 
 
         # ---------------------------------
-        # Get States
+        # Load States
         # ---------------------------------
 
         attacker = battle.state_of(
+
             attacker_id
+
         )
 
         defender = battle.opponent_state(
+
             attacker_id
+
         )
 
 
+        print(
+            "Attacker:",
+            attacker.player.username
+        )
+
+        print(
+            "Defender:",
+            defender.player.username
+        )
+
 
         # ---------------------------------
-        # Get Skill
+        # Load Skill
         # ---------------------------------
 
         skill = HeroMemoryService.get_skill(
@@ -71,7 +87,17 @@ class AttackAction:
         )
 
 
+        print(
+            "Skill:",
+            skill
+        )
+
+
         if skill is None:
+
+            print(
+                "❌ Skill does not exist"
+            )
 
             result.failed_memory = True
 
@@ -86,10 +112,14 @@ class AttackAction:
 
 
         # ---------------------------------
-        # Forgotten Skill Check
+        # Forgotten Skill
         # ---------------------------------
 
-        if skill["power"] is None:
+        if skill.get("power") is None:
+
+            print(
+                "❓ Forgotten skill"
+            )
 
             result.failed_memory = True
 
@@ -105,16 +135,33 @@ class AttackAction:
 
         if skill_slot != "basic_attack":
 
-            if attacker.cooldown(skill_slot) > 0:
+            cooldown = attacker.cooldown(
 
-                result.action = "attack"
+                skill_slot
+
+            )
+
+
+            print(
+                "Cooldown:",
+                cooldown
+            )
+
+
+            if cooldown > 0:
+
+                print(
+                    "⏳ Skill on cooldown"
+                )
+
+                result.action = "cooldown"
 
                 return result
 
 
 
         # ---------------------------------
-        # Luck Roll
+        # Luck
         # ---------------------------------
 
         luck_result = LuckService.roll(
@@ -127,9 +174,15 @@ class AttackAction:
         result.critical = luck_result.success
 
 
+        print(
+            "Critical:",
+            result.critical
+        )
+
+
 
         # ---------------------------------
-        # Damage Calculation
+        # Damage
         # ---------------------------------
 
         damage_result = DamageService.calculate(
@@ -145,11 +198,19 @@ class AttackAction:
         )
 
 
-
         result.damage = damage_result.damage
 
-        result.damage_type = skill["damage_type"]
+        result.damage_type = skill.get(
 
+            "damage_type"
+
+        )
+
+
+        print(
+            "Damage:",
+            result.damage
+        )
 
 
         # ---------------------------------
@@ -163,19 +224,41 @@ class AttackAction:
         )
 
 
+        print(
+            "Enemy HP:",
+            defender.current_hp
+        )
+
+
 
         # ---------------------------------
-        # Cooldown
+        # Apply Cooldown
         # ---------------------------------
 
         if skill_slot != "basic_attack":
+
+
+            cooldown = skill.get(
+
+                "cooldown",
+
+                0
+
+            )
+
 
             attacker.set_cooldown(
 
                 skill_slot,
 
-                skill["cooldown"]
+                cooldown
 
+            )
+
+
+            print(
+                "Cooldown applied:",
+                cooldown
             )
 
 
@@ -185,6 +268,12 @@ class AttackAction:
         # ---------------------------------
 
         if defender.defeated:
+
+
+            print(
+                "🏆 Enemy defeated"
+            )
+
 
             result.defeated = True
 
@@ -200,14 +289,23 @@ class AttackAction:
 
         if not result.finished:
 
+
             battle.next_turn()
 
 
+            print(
+                "Next turn:",
+                battle.turn
+            )
 
-        # ---------------------------------
-        # Return Result
-        # ---------------------------------
+
 
         result.action = "attack"
+
+
+        print(
+            "========== ATTACK COMPLETE ==========\n"
+        )
+
 
         return result

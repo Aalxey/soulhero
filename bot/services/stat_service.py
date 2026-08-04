@@ -2,44 +2,72 @@ from bot.services.hero_service import HeroService
 from bot.services.role_service import RoleService
 
 
+
 class StatService:
     """
     Calculates a player's final battle stats.
 
-    Formula
+    Formula:
 
-    Base Role Stats
-        +
-    Resonance Growth
-        +
-    Manual Bonus Stats
-        +
-    Hero Stat Modifier
+        Role Base Stats
+              +
+        Resonance Growth
+              +
+        Player Allocated Stats
+              +
+        Hero Modifier
+              +
+        Future Bonuses
 
-    =
-    Final Battle Stats
+        =
+        Final Battle Stats
+
+
+    This service NEVER:
+
+        ✗ Changes player data
+        ✗ Saves database
+        ✗ Handles battle
+        ✗ Handles Discord
     """
+
+
 
     @staticmethod
     def get_stats(player):
 
+
+        # ---------------------------------
+        # Get Hero
+        # ---------------------------------
+
         hero = HeroService.get_hero_by_id(
+
             player.hero_id
+
         )
+
 
         if hero is None:
 
             raise ValueError(
 
-                f"Hero {player.hero_id} does not exist."
+                f"Hero '{player.hero_id}' does not exist."
 
             )
+
+
+
+        # ---------------------------------
+        # Get Role
+        # ---------------------------------
 
         role = RoleService.get_role(
 
             hero["role"]
 
         )
+
 
         if role is None:
 
@@ -49,9 +77,21 @@ class StatService:
 
             )
 
+
+
+        # ---------------------------------
+        # Base Data
+        # ---------------------------------
+
         base = role["base"]
 
         growth = role["growth"]
+
+
+
+        # ---------------------------------
+        # Resonance Level
+        # ---------------------------------
 
         resonance = max(
 
@@ -61,9 +101,17 @@ class StatService:
 
         )
 
+
         level = resonance - 1
 
+
+
+        # ---------------------------------
+        # Calculate Stats
+        # ---------------------------------
+
         stats = {
+
 
             "max_hp":
 
@@ -75,13 +123,25 @@ class StatService:
 
                     growth["max_hp"]
 
-                    * level
+                    *
+
+                    level
 
                 )
 
                 +
 
-                player.allocated_hp,
+                getattr(
+
+                    player,
+
+                    "allocated_hp",
+
+                    0
+
+                ),
+
+
 
             "attack":
 
@@ -93,13 +153,25 @@ class StatService:
 
                     growth["attack"]
 
-                    * level
+                    *
+
+                    level
 
                 )
 
                 +
 
-                player.allocated_attack,
+                getattr(
+
+                    player,
+
+                    "allocated_attack",
+
+                    0
+
+                ),
+
+
 
             "defense":
 
@@ -111,13 +183,25 @@ class StatService:
 
                     growth["defense"]
 
-                    * level
+                    *
+
+                    level
 
                 )
 
                 +
 
-                player.allocated_defense,
+                getattr(
+
+                    player,
+
+                    "allocated_defense",
+
+                    0
+
+                ),
+
+
 
             "speed":
 
@@ -129,19 +213,45 @@ class StatService:
 
                     growth["speed"]
 
-                    * level
+                    *
+
+                    level
 
                 )
 
                 +
 
-                player.allocated_speed,
+                getattr(
+
+                    player,
+
+                    "allocated_speed",
+
+                    0
+
+                ),
+
+
 
             "luck":
 
-                player.luck
+                getattr(
+
+                    player,
+
+                    "luck",
+
+                    0
+
+                )
 
         }
+
+
+
+        # ---------------------------------
+        # Hero Passive Modifier
+        # ---------------------------------
 
         modifier = hero.get(
 
@@ -151,10 +261,65 @@ class StatService:
 
         )
 
+
+
         for stat, value in modifier.items():
+
 
             if stat in stats:
 
                 stats[stat] += value
+
+
+
+        # ---------------------------------
+        # Safety Checks
+        # ---------------------------------
+
+        stats["max_hp"] = max(
+
+            1,
+
+            stats["max_hp"]
+
+        )
+
+
+        stats["attack"] = max(
+
+            1,
+
+            stats["attack"]
+
+        )
+
+
+        stats["defense"] = max(
+
+            1,
+
+            stats["defense"]
+
+        )
+
+
+        stats["speed"] = max(
+
+            1,
+
+            stats["speed"]
+
+        )
+
+
+        stats["luck"] = max(
+
+            0,
+
+            stats["luck"]
+
+        )
+
+
 
         return stats

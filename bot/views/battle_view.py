@@ -84,21 +84,21 @@ class BattleView(discord.ui.View):
         # Open Attack Menu
         # -----------------------------
 
-        await interaction.response.send_message(
+        # await interaction.response.send_message(
 
-            "Choose your skill.",
+        #     "Choose your skill.",
 
-            view=AttackView(
+        #     view=AttackView(
 
-                self.battle,
+        #         self.battle,
 
-                str(interaction.user.id)
+        #         str(interaction.user.id)
 
-            ),
+        #     ),
 
-            ephemeral=True
+        #     ephemeral=True
 
-        )
+        # )
 
 
     # -------------------------------------------------

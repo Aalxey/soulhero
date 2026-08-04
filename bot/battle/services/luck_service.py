@@ -16,6 +16,10 @@ class LuckService:
     """
 
 
+    # -----------------------------------------
+    # Determine dice amount from luck
+    # -----------------------------------------
+
     @staticmethod
     def get_dice_count(
         luck: int
@@ -42,8 +46,10 @@ class LuckService:
             return 5
 
 
-    # -----------------------------------------
 
+    # -----------------------------------------
+    # Roll luck
+    # -----------------------------------------
 
     @staticmethod
     def roll(
@@ -53,15 +59,37 @@ class LuckService:
         result = LuckResult()
 
 
+        print("\n========== LUCK ROLL ==========")
+
+        print(
+            "Luck:",
+            luck
+        )
+
+
+        # -------------------------
+        # Dice Amount
+        # -------------------------
+
         dice_count = LuckService.get_dice_count(
             luck
         )
 
 
-        result.dice_count = dice_count
+        result.dice_used = dice_count
 
 
-        for _ in range(dice_count):
+        print(
+            "Dice used:",
+            dice_count
+        )
+
+
+        # -------------------------
+        # Roll Dice
+        # -------------------------
+
+        for index in range(dice_count):
 
             roll = random.choice(
                 [
@@ -71,24 +99,68 @@ class LuckService:
             )
 
 
-            result.results.append(
+            result.rolls.append(
                 roll
+            )
+
+
+            print(
+                f"Dice {index + 1}:",
+                "SUCCESS" if roll else "FAIL"
             )
 
 
             if roll:
 
-                result.success_count += 1
+                result.successful_dice += 1
 
             else:
 
-                result.fail_count += 1
+                result.failed_dice += 1
 
 
-        # One success is enough
+
+        # -------------------------
+        # Final Result
+        # -------------------------
 
         result.success = (
-            result.success_count > 0
+
+            result.successful_dice > 0
+
+        )
+
+
+        result.reason = (
+
+            "Luck succeeded"
+
+            if result.success
+
+            else
+
+            "Luck failed"
+
+        )
+
+
+        print(
+            "Success:",
+            result.success
+        )
+
+        print(
+            "Successful:",
+            result.successful_dice
+        )
+
+        print(
+            "Failed:",
+            result.failed_dice
+        )
+
+        print(
+            "==============================\n"
         )
 
 

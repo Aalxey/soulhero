@@ -1,4 +1,4 @@
-from bot.battle.models.battle_result import BattleResult
+from bot.battle.battle_result import BattleResult
 
 
 class SurrenderAction:

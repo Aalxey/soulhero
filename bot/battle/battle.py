@@ -7,17 +7,13 @@ class Battle:
     """
     Represents one active battle.
 
-    Battle stores:
+    Stores only combat data.
 
-    - Battle ID
-    - Two combatants
-    - Turn order
-    - Discord message/channel
-    - Winner
-
-    Every player's temporary battle data
-    lives inside BattleState.
+    No Discord.
+    No Scenes.
+    No Views.
     """
+
 
     def __init__(
         self,
@@ -27,16 +23,17 @@ class Battle:
 
         self.id = str(uuid4())
 
+
         # -------------------------
-        # Database Players
+        # Players
         # -------------------------
 
         self.player_one = player_one
-
         self.player_two = player_two
 
+
         # -------------------------
-        # Temporary Battle States
+        # Temporary states
         # -------------------------
 
         self.player_one_state = BattleState(
@@ -47,8 +44,9 @@ class Battle:
             player_two
         )
 
+
         # -------------------------
-        # Decide first turn
+        # Turn
         # -------------------------
 
         if (
@@ -63,45 +61,50 @@ class Battle:
 
             self.turn = player_two.discord_id
 
+
+
         # -------------------------
-        # Discord
+        # Discord reference
         # -------------------------
 
         self.channel_id = None
-
         self.message_id = None
+        self.guild = None
+
+
 
         # -------------------------
-        # Battle Result
+        # Result
         # -------------------------
 
         self.finished = False
-
         self.winner = None
 
-    # -------------------------------------------------
+
+
+    # -------------------------
 
     @property
     def players(self):
 
         return (
-
             self.player_one.discord_id,
-
             self.player_two.discord_id
-
         )
 
-    # -------------------------------------------------
+
+    # -------------------------
 
     def contains(
         self,
-        discord_id: str
+        discord_id
     ):
 
         return str(discord_id) in self.players
 
-    # -------------------------------------------------
+
+
+    # -------------------------
 
     def current_player(self):
 
@@ -111,7 +114,9 @@ class Battle:
 
         return self.player_two
 
-    # -------------------------------------------------
+
+
+    # -------------------------
 
     def current_state(self):
 
@@ -121,72 +126,48 @@ class Battle:
 
         return self.player_two_state
 
-    # -------------------------------------------------
 
-    def waiting_player(self):
 
-        if self.turn == self.player_one.discord_id:
-
-            return self.player_two
-
-        return self.player_one
-
-    # -------------------------------------------------
-
-    def waiting_state(self):
-
-        if self.turn == self.player_one.discord_id:
-
-            return self.player_two_state
-
-        return self.player_one_state
-
-    # -------------------------------------------------
+    # -------------------------
 
     def state_of(
         self,
-        discord_id: str
+        discord_id
     ):
 
         if str(discord_id) == self.player_one.discord_id:
 
             return self.player_one_state
 
+
         return self.player_two_state
 
-    # -------------------------------------------------
 
-    def opponent(
-        self,
-        discord_id: str
-    ):
 
-        if str(discord_id) == self.player_one.discord_id:
-
-            return self.player_two
-
-        return self.player_one
-
-    # -------------------------------------------------
+    # -------------------------
 
     def opponent_state(
         self,
-        discord_id: str
+        discord_id
     ):
 
         if str(discord_id) == self.player_one.discord_id:
 
             return self.player_two_state
 
+
         return self.player_one_state
 
-    # -------------------------------------------------
+
+
+    # -------------------------
 
     def next_turn(self):
 
         self.current_state().remove_guard()
 
         self.current_state().reduce_cooldowns()
+
 
         if self.turn == self.player_one.discord_id:
 
@@ -196,7 +177,9 @@ class Battle:
 
             self.turn = self.player_one.discord_id
 
-    # -------------------------------------------------
+
+
+    # -------------------------
 
     def finish(
         self,
@@ -207,7 +190,9 @@ class Battle:
 
         self.winner = winner
 
-    # -------------------------------------------------
+
+
+    # -------------------------
 
     def is_finished(self):
 
